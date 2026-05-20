@@ -1,731 +1,461 @@
-# AI-Security
-This is the repository for the OWASP Top 10 LLM, Hand on Experience and Mitigations
+<div align="center">
 
-![platform](https://img.shields.io/badge/AI-Security-violet)
-![platform](https://img.shields.io/badge/LLM-Security-blueviolet)
-![platform](https://img.shields.io/badge/Artificial-Intelligence-purple)
-![platform](https://img.shields.io/badge/AIDataLeakage-Prevention-yellowgreen)
-![platform](https://img.shields.io/badge/AISupplyChaine-Security-green)
-![platform](https://img.shields.io/badge/SecurePrompt-Design-purple)
-![platform](https://img.shields.io/badge/RetrievalAugmentedGeneration-RAG-yellow)
+# 🛡️ AI Security — OWASP Top 10 for LLM Applications
 
-<img align="center" height="500" width="500" src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/Logo.png" />
+> **Hands-on Experience, Threat Understanding & Mitigations**
 
-<h1 align="center"><font face="Arial">Introduction to OWASP Top 10 for LLM Applications </font></h1>
+<img src="Resources/Logo.png" height="300" width="300" alt="AI Security Logo" />
+
+<br/>
+
+![AI Security](https://img.shields.io/badge/AI-Security-7B2FBE?style=for-the-badge)
+![LLM Security](https://img.shields.io/badge/LLM-Security-5C2D91?style=for-the-badge)
+![Artificial Intelligence](https://img.shields.io/badge/Artificial-Intelligence-9B30FF?style=for-the-badge)
+![Data Leakage Prevention](https://img.shields.io/badge/Data%20Leakage-Prevention-yellowgreen?style=for-the-badge)
+![Supply Chain Security](https://img.shields.io/badge/Supply%20Chain-Security-green?style=for-the-badge)
+![Secure Prompt Design](https://img.shields.io/badge/Secure%20Prompt-Design-blueviolet?style=for-the-badge)
+![RAG](https://img.shields.io/badge/RAG-Retrieval%20Augmented%20Generation-orange?style=for-the-badge)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+1. [Executive Overview](#1-executive-overview)
+2. [Why AI Security Matters](#2-why-ai-security-matters)
+3. [OWASP Top 10 for LLM Applications](#3-owasp-top-10-for-llm-applications)
+4. [How a Large Language Model Works](#4-how-a-large-language-model-works)
+   - 4.1 [LLM Pipeline Overview](#41-llm-pipeline-overview)
+   - 4.2 [Step 1 — Tokenization & Embeddings](#42-step-1--tokenization--embeddings)
+   - 4.3 [Step 2 — Transformer Neural Network](#43-step-2--transformer-neural-network)
+   - 4.4 [Step 3 — Attention Mechanism](#44-step-3--attention-mechanism)
+   - 4.5 [Step 4 — Output Prediction](#45-step-4--output-prediction)
+   - 4.6 [Step 5 — Final Response Generation](#46-step-5--final-response-generation)
+5. [Deep Dive: Embeddings, Positions & Transformer](#5-deep-dive-embeddings-positions--transformer)
+   - 5.1 [End-to-End Architecture View](#51-end-to-end-architecture-view)
+   - 5.2 [Token Embeddings](#52-token-embeddings)
+   - 5.3 [Positional Encoding](#53-positional-encoding)
+   - 5.4 [Sinusoidal Encoding Formula](#54-sinusoidal-encoding-formula)
+   - 5.5 [Embedding + Position Combined](#55-embedding--position-combined)
+   - 5.6 [Transformer Block Internals](#56-transformer-block-internals)
+6. [Key Concepts Summary](#6-key-concepts-summary)
+7. [Real-World Applications](#7-real-world-applications)
+8. [Security Considerations](#8-security-considerations)
+9. [Further Learning Topics](#9-further-learning-topics)
+10. [Author](#10-author)
+
+---
+
+## 1. Executive Overview
 
 The rapid adoption of Artificial Intelligence and Large Language Models (LLMs) is transforming how organizations build applications, automate operations, and interact with users. From AI chatbots and copilots to autonomous agents and enterprise automation platforms, LLMs are becoming a core part of modern digital ecosystems.
 
-However, alongside innovation comes a new generation of security risks. Traditional application security controls alone are no longer sufficient to protect AI-driven systems. LLMs introduce unique attack surfaces such as Prompt Injection, Sensitive Information Disclosure, Model Poisoning, Excessive Agency, System Prompt Leakage, and Vector Database attacks.
+However, alongside innovation comes a new generation of security risks. Traditional application security controls alone are no longer sufficient to protect AI-driven systems. LLMs introduce unique attack surfaces such as **Prompt Injection**, **Sensitive Information Disclosure**, **Model Poisoning**, **Excessive Agency**, **System Prompt Leakage**, and **Vector Database Attacks**.
 
-To address these emerging threats, the OWASP Foundation introduced the OWASP Top 10 for LLM Applications — a globally recognized awareness and risk management framework focused on securing AI and Generative AI ecosystems.
+To address these emerging threats, the **OWASP Foundation** introduced the **OWASP Top 10 for LLM Applications** — a globally recognized awareness and risk management framework focused on securing AI and Generative AI ecosystems.
 
-## <h3 align="left"><font face="Arial"><span style="color:green">The OWASP Top 10 for LLMs helps organizations:</span></font></h3>
-
-Understand the most critical AI security risks
-Secure AI-powered applications and workflows
-Implement Secure-by-Design AI architectures
-Build governance and compliance controls for GenAI adoption
-Enable secure AI innovation across the SDLC
-
-## <h3 align="left"><font face="Arial"><span style="color:green">The framework highlights the most impactful vulnerabilities affecting LLM-based systems, including:</span></font></h3>
-
-1.  LLM01 - Prompt Injection 
-2.  LLM02 - Sensitive Information Disclosure
-3.  LLM03 - Supply Chain Vulnerabilities
-4.  LLM04 - Data and Model Poisoning 
-5.  LLM05 - Improper Output Handling 
-6.  LLM06 - Excessive Agency 
-7.  LLM07 - System Prompt Leakage
-8.  LLM08 - Vector and Embedding Weaknesses
-9.  LLM09 - Misinformation 
-10. LLM10 - Unbounded Consumption
-
-<h1 align="center"><font face="Arial">How LLM Works</font></h1>
-
-
-# 🚀 How a Large Language Model (LLM) Works Internally
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="LLM Architecture Overview"/>
-  </p>
+> 💡 **In today's AI-driven world, securing LLM applications is no longer optional — it is a critical business, privacy, and operational requirement.**
 
 ---
 
-# 📌 Introduction
+## 2. Why AI Security Matters
 
-Large Language Models (LLMs) such as GPT, Gemini, Claude, and Llama process human language using advanced neural network architectures called **Transformers**.
+The OWASP Top 10 for LLMs helps organizations:
 
-An LLM performs the following major steps internally:
+| Business Goal | How AI Security Enables It |
+|---|---|
+| 🔍 Risk Awareness | Understand the most critical AI security threats |
+| 🔒 Secure Workflows | Protect AI-powered applications and pipelines |
+| 🏗️ Secure by Design | Implement Secure-by-Design AI architectures |
+| 📋 Governance & Compliance | Build GenAI governance and compliance controls |
+| 🚀 Safe Innovation | Enable secure AI adoption across the entire SDLC |
 
-```text
-Input Text
-   ↓
-Tokenization
-   ↓
-Embeddings
-   ↓
-Transformer Layers
-   ↓
-Attention Mechanism
-   ↓
-Next Token Prediction
-   ↓
-Final Human-like Response
+Organizations that proactively adopt AI Security, governance, and secure engineering practices will be better positioned to **innovate safely**, **protect sensitive data**, and **maintain customer trust**.
+
+---
+
+## 3. OWASP Top 10 for LLM Applications
+
+The framework highlights the ten most impactful vulnerabilities affecting LLM-based systems:
+
+| # | Vulnerability | Risk Summary |
+|---|---|---|
+| **LLM01** | 💉 Prompt Injection | Malicious inputs manipulate LLM behavior or override system instructions |
+| **LLM02** | 🔓 Sensitive Information Disclosure | LLMs inadvertently reveal confidential data, PII, or proprietary content |
+| **LLM03** | 🔗 Supply Chain Vulnerabilities | Compromised models, datasets, or third-party integrations introduce risks |
+| **LLM04** | ☠️ Data and Model Poisoning | Training data manipulation degrades model integrity and trustworthiness |
+| **LLM05** | ⚠️ Improper Output Handling | Unvalidated LLM outputs are passed to downstream systems without sanitization |
+| **LLM06** | 🤖 Excessive Agency | LLMs are granted excessive permissions, enabling unintended autonomous actions |
+| **LLM07** | 🕵️ System Prompt Leakage | Internal system instructions are extracted and exposed by adversaries |
+| **LLM08** | 🗄️ Vector and Embedding Weaknesses | Attacks on vector databases undermine RAG pipeline integrity |
+| **LLM09** | 🌫️ Misinformation | LLMs generate plausible but factually incorrect content (hallucinations) |
+| **LLM10** | 💸 Unbounded Consumption | Uncontrolled LLM usage leads to excessive resource consumption and cost |
+
+---
+
+## 4. How a Large Language Model Works
+
+### 4.1 LLM Pipeline Overview
+
+LLMs such as GPT, Gemini, Claude, and Llama process human language using advanced neural network architectures called **Transformers**. The full pipeline is:
+
+```
+Input Text  →  Tokenization  →  Embeddings  →  Transformer Layers
+     ↓
+Attention Mechanism  →  Next Token Prediction  →  Final Human-like Response
 ```
 
----
-
-# 🧠 End-to-End LLM Workflow
-
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%202.png" width="100%" alt="LLM End to End Workflow"/>
+  <img src="Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="LLM Architecture Overview"/>
 </p>
 
 ---
 
-# 1️⃣ Tokenization & Embeddings
+### 4.2 Step 1 — Tokenization & Embeddings
 
-## 🔹 What is Tokenization?
+<p align="center">
+  <img src="Resources/How%20LLM%20Works%20-%202.png" width="100%" alt="LLM End-to-End Workflow"/>
+</p>
 
-The input sentence is broken into smaller units called **tokens**.
+#### 🔹 Tokenization
 
-### Example
+The input sentence is broken into smaller units called **tokens**:
 
-```text
-Input:
-"What is cloud security?"
-
-Tokens:
-["What", "is", "cloud", "security", "?"]
+```
+Input:  "What is cloud security?"
+Tokens: ["What", "is", "cloud", "security", "?"]
 ```
 
-Each token is converted into a numeric ID.
+Each token is mapped to a numeric ID:
 
 | Token | Token ID |
-|------|------|
+|---|---|
 | What | 1011 |
 | is | 2053 |
 | cloud | 5024 |
 | security | 9617 |
 | ? | 102 |
 
----
+#### 🔹 Embeddings
 
-## 🔹 What are Embeddings?
+Tokens are transformed into high-dimensional vectors that capture:
 
-Tokens are transformed into vectors (numerical representations).
-
-These vectors capture:
-
-- Semantic meaning
-- Relationships
-- Context
-- Similarity
-
-### Example Embedding
-
-```text
-cloud → [0.21, 0.87, 0.45, 0.12 ...]
-```
-
-Words with similar meaning have embeddings closer together in vector space.
-
----
-
-# 2️⃣ Transformer Neural Network
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%203.png" width="100%" alt="Transformer Neural Network"/>
-</p>
-
----
-
-## 🔹 What is a Transformer?
-
-The Transformer is the core neural architecture behind modern LLMs.
-
-It processes all tokens in parallel and understands relationships between words.
-
----
-
-## 🔹 Main Components Inside Transformer
-
-### ✅ Multi-Head Self-Attention
-
-Allows the model to focus on different parts of the sentence simultaneously.
-
-### ✅ Feed Forward Network (FFN)
-
-Applies nonlinear transformations to improve understanding.
-
-### ✅ Add & Norm
-
-Helps stabilize training and preserve information.
-
-### ✅ Positional Encoding
-
-Adds word position information because transformers process tokens in parallel.
-
----
-
-## 🔹 Transformer Block Flow
-
-```text
-Input Embedding
-      ↓
-Multi-Head Attention
-      ↓
-Add & Norm
-      ↓
-Feed Forward Network
-      ↓
-Add & Norm
-      ↓
-Output Representation
-```
-
-This process repeats across multiple layers.
-
----
-
-# 3️⃣ Attention Mechanism
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%204%20ATTENTION%20MECHANISM.png" width="100%" alt="Attention Mechanism"/>
-</p>
-
----
-
-## 🔹 What is Attention?
-
-Attention helps the model determine:
-
-> Which words are most important for understanding the current word.
-
----
-
-## 🔹 Example
-
-Sentence:
-
-```text
-"What is cloud security?"
-```
-
-When understanding the word:
-
-```text
-security
-```
-
-The model may focus more on:
-
-- cloud
-- security
-
-and less on:
-
-- what
-- is
-
----
-
-## 🔹 Query, Key, and Value (QKV)
-
-Each token creates 3 vectors:
-
-| Component | Purpose |
+| Property | Description |
 |---|---|
-| Query (Q) | What am I searching for? |
-| Key (K) | What information do I contain? |
-| Value (V) | What information should I provide? |
+| Semantic Meaning | What the word means |
+| Relationships | How words relate to each other |
+| Context | How meaning changes with usage |
+| Similarity | Words with similar meanings cluster together |
+
+**Example:** `cloud → [0.21, 0.87, 0.45, 0.12 ...]`
 
 ---
 
-## 🔹 Attention Formula
-
-```math
-Attention(Q,K,V) = Softmax(QKᵀ / √dₖ)V
-```
-
-Where:
-
-- `QKᵀ` → similarity score
-- `Softmax` → converts scores into probabilities
-- `√dₖ` → scaling factor
-- `V` → actual information passed forward
-
----
-
-## 🔹 Why Attention is Powerful
-
-Attention allows LLMs to:
-
-- Understand long-range relationships
-- Maintain context
-- Focus dynamically on important words
-- Improve reasoning capability
-
----
-
-# 4️⃣ Predicting Output
+### 4.3 Step 2 — Transformer Neural Network
 
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%205.png" width="100%" alt="Predicting Output"/>
+  <img src="Resources/How%20LLM%20Works%20-%203.png" width="100%" alt="Transformer Neural Network"/>
 </p>
+
+The Transformer is the core neural architecture behind modern LLMs. It processes all tokens **in parallel** and understands relationships between words.
+
+**Main Components:**
+
+| Component | Role |
+|---|---|
+| Multi-Head Self-Attention | Focuses on different parts of the sentence simultaneously |
+| Feed Forward Network (FFN) | Applies nonlinear transformations to deepen understanding |
+| Add & Norm | Stabilizes training and preserves original information |
+| Positional Encoding | Injects word-order information into parallel processing |
+
+**Transformer Block Flow:**
+
+```
+Input Embedding  →  Multi-Head Attention  →  Add & Norm
+                              ↓
+               Feed Forward Network  →  Add & Norm  →  Output
+```
+
+This block repeats across many layers, progressively building richer understanding.
 
 ---
 
-## 🔹 Next Token Prediction
+### 4.4 Step 3 — Attention Mechanism
 
-LLMs generate responses one token at a time.
+<p align="center">
+  <img src="Resources/How%20LLM%20Works%20-%204%20ATTENTION%20MECHANISM.png" width="100%" alt="Attention Mechanism"/>
+</p>
 
-Example:
+Attention answers the question: **"Which words should I focus on to understand this word?"**
 
-Input:
+**Example — Understanding "security" in "What is cloud security?"**
 
-```text
-"What is cloud security?"
-```
+| Token | Attention Weight |
+|---|---|
+| cloud | High — defines the domain |
+| security | High — the subject itself |
+| is | Medium — sentence structure |
+| What | Lower — question context |
 
-The model predicts probabilities for the next token:
+#### QKV Mechanism
 
-| Token | Probability |
+Each token generates three vectors used to compute attention scores:
+
+| Vector | Purpose |
+|---|---|
+| **Q** (Query) | What information am I looking for? |
+| **K** (Key) | What information do I hold? |
+| **V** (Value) | What should I pass forward? |
+
+**Attention Formula:**
+
+$$\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$
+
+| Term | Role |
+|---|---|
+| $QK^\top$ | Computes similarity scores between tokens |
+| $\text{Softmax}$ | Normalizes scores into probabilities |
+| $\sqrt{d_k}$ | Scaling factor to prevent gradient issues |
+| $V$ | Weighted information passed forward |
+
+---
+
+### 4.5 Step 4 — Output Prediction
+
+<p align="center">
+  <img src="Resources/How%20LLM%20Works%20-%205.png" width="100%" alt="Predicting Output"/>
+</p>
+
+LLMs generate responses **one token at a time**. For the input `"What is cloud security?"`, the model might predict:
+
+| Next Token | Probability |
 |---|---|
 | protect | 0.31 |
 | data | 0.25 |
 | secure | 0.15 |
 | manage | 0.07 |
 
-The highest probability token is selected.
+The highest probability token is selected, then appended to the input, and the process repeats until an `<eos>` (end-of-sequence) token is generated.
 
 ---
 
-## 🔹 Iterative Generation
+### 4.6 Step 5 — Final Response Generation
 
-The selected token becomes part of the next input.
+Generated tokens are decoded and combined into a coherent human-readable response:
 
-Example:
-
-```text
-What is cloud security ?
-→ protect
-→ data
-→ is
-→ stored
-→ securely
-```
-
-Generation continues until:
-
-```text
-<eos> (End of Sequence)
-```
+> **"Cloud security protects data, applications, and infrastructure from unauthorized access, threats, and breaches."**
 
 ---
 
-# 5️⃣ Final Output
+## 5. Deep Dive: Embeddings, Positions & Transformer
 
-The generated tokens are combined into a human-readable response.
+> Example sentence used throughout this section: **"What is cloud Security?"**
 
-### Example Final Response
+### 5.1 End-to-End Architecture View
 
-```text
-Cloud security protects data, applications,
-and infrastructure from unauthorized access,
-threats, and breaches.
+<p align="center">
+  <img src="Resources/1)Embedding%20Positions%20and%20Transformer%20(AttentionFFN).png" width="100%" alt="Embeddings, Positions and Transformer — Full Architecture"/>
+</p>
+
+The full pipeline from input tokens to contextualized output vectors:
+
+```
+Input Text  →  Tokens  →  Token Embeddings  →  + Position Encodings
+                                                         ↓
+                                              Transformer Block
+                                                         ↓
+                                         Contextualized Output Vectors
 ```
 
 ---
 
-# 🔥 Key Concepts Summary
+### 5.2 Token Embeddings
 
-| Component | Purpose |
+<p align="center">
+  <img src="Resources/2)%20TOKEN%20EMBEDDINGS.png" width="100%" alt="Token Embeddings Example"/>
+</p>
+
+Token embeddings convert each word/token into a dense numerical vector learned during training. Key properties:
+
+- Each row = learned vector for one token
+- Similar words have closer vector representations
+- Embeddings capture **semantic meaning** but **not token order** — that is handled by positional encoding
+
+---
+
+### 5.3 Positional Encoding
+
+<p align="center">
+  <img src="Resources/3)%20POSITION%20ENCODINGS.png" width="100%" alt="Position Encodings Heatmap"/>
+</p>
+
+Without positional encoding, the model cannot distinguish token order. For `"What is cloud Security?"`:
+
+| Position | Token |
 |---|---|
-| Tokenization | Break text into tokens |
-| Embeddings | Convert tokens into vectors |
-| Transformer | Process relationships |
-| Attention | Focus on important context |
-| FFN | Learn deeper representations |
-| Prediction | Generate next token |
-| Decoding | Produce final response |
+| 1 | What |
+| 2 | is |
+| 3 | cloud |
+| 4 | Security |
+| 5 | ? |
+
+Positional encoding injects this order information into each token vector before it enters the Transformer.
 
 ---
 
-# 🎯 Why Transformers Changed AI
-
-Transformers revolutionized AI because they:
-
-- Process tokens in parallel
-- Handle long-range dependencies
-- Scale efficiently
-- Learn contextual understanding
-- Generate human-like responses
-
----
-
-# 🛡️ Real-World Applications of LLMs
-
-- AI Chatbots
-- Code Generation
-- Security Automation
-- Threat Modeling
-- Medical AI
-- Search Engines
-- Document Summarization
-- AI Assistants
-- Translation Systems
-- Autonomous Agents
-
----
-
-# ⚠️ Security Considerations in LLMs
-
-Modern LLMs also introduce security risks such as:
-
-- Prompt Injection
-- Jailbreak Attacks
-- Hallucinations
-- Data Leakage
-- Model Poisoning
-- System Prompt Leakage
-- Unbounded Consumption
-- Vector Database Attacks
-
----
-
-# 📚 Additional Learning Topics
-
-- Embeddings
-- Vector Databases
-- RAG (Retrieval-Augmented Generation)
-- Fine-Tuning
-- Prompt Engineering
-- Multi-Head Attention
-- Positional Encoding
-- Decoder-only Transformers
-- Mixture of Experts (MoE)
-- AI Security & OWASP Top 10 for LLMs
-
----
-
-# 🏆 Final Takeaway
-
-LLMs work by:
-
-1. Breaking text into tokens  
-2. Converting tokens into embeddings  
-3. Processing them through transformer layers  
-4. Using attention to understand context  
-5. Predicting one token at a time  
-6. Generating coherent human-like responses  
-
----
-
-# 📷 Architecture Visuals
-
-## LLM Internal Workflow
+### 5.4 Sinusoidal Encoding Formula
 
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%201.png" width="100%"/>
+  <img src="Resources/3.1)%20POSITION%20ENCODINGS.png" width="100%" alt="Sinusoidal Position Encoding Formula and Matrix"/>
 </p>
 
----
+The original Transformer uses fixed sinusoidal functions:
 
-## Detailed Transformer Workflow
+$$PE(pos,\ 2i) = \sin\!\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
+
+$$PE(pos,\ 2i+1) = \cos\!\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
+
+| Variable | Meaning |
+|---|---|
+| $pos$ | Token position in the sequence |
+| $i$ | Dimension pair index |
+| $d_{model}$ | Embedding dimension size |
 
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%202.png" width="100%"/>
+  <img src="Resources/3.2)%20POSITION%20ENCODINGS%20with%20Example.png" width="100%" alt="Step-by-Step Sinusoidal Position Encoding Calculation"/>
 </p>
+
+**Step-by-step calculation (d_model = 6):**
+
+1. Set embedding dimension: `d_model = 6`
+2. Define dimension indexes: `0, 1, 2, 3, 4, 5`
+3. Compute frequency terms per dimension
+4. Compute angles using position × frequency
+5. Apply `sin()` for even dimensions
+6. Apply `cos()` for odd dimensions
+7. Build the final positional encoding matrix
 
 ---
 
-## Transformer + Attention Architecture
+### 5.5 Embedding + Position Combined
 
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%203.png" width="100%"/>
+  <img src="Resources/4)%20EMBEDDING%20%2B%20POSITION.png" width="100%" alt="Embedding Plus Position Input to Transformer"/>
 </p>
+
+The final input vector is the **element-wise sum** of the token embedding and positional encoding:
+
+$$x_i = e_i + p_i$$
+
+| Vector | Carries |
+|---|---|
+| $e_i$ | What the token means (semantic content) |
+| $p_i$ | Where the token appears (order/position) |
+| $x_i$ | Both meaning and order — input to Transformer |
 
 ---
 
-## Attention Mechanism Deep Dive
+### 5.6 Transformer Block Internals
 
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%204%20ATTENTION%20MECHANISM.png" width="100%"/>
-</p>
+Once $x_i$ vectors are ready, they flow through the Transformer block:
 
----
+**Multi-Head Self-Attention** — each token attends to all others; for `cloud`, the model focuses more on `Security` (context) and `is` (structure).
 
-## Predicting Output & Final Response
+**Feed-Forward Network (FFN)** — applied independently per token position to refine contextual representations.
 
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%205.png" width="100%"/>
-</p>
+**Residual Connection + Layer Normalization** — preserve original information and stabilize gradient flow during training.
 
 ---
 
-# 👨‍💻 Author
+## 6. Key Concepts Summary
+
+| Component | Role in the LLM Pipeline |
+|---|---|
+| **Tokenization** | Break raw text into processable units |
+| **Embeddings** | Convert tokens into semantic vector representations |
+| **Positional Encoding** | Add order information to parallel-processed tokens |
+| **Transformer** | Process inter-token relationships across all layers |
+| **Multi-Head Attention** | Focus dynamically on relevant context |
+| **Feed Forward Network** | Deepen and refine learned representations |
+| **Next Token Prediction** | Generate output one token at a time |
+| **Decoding** | Assemble tokens into a coherent final response |
+
+**Why Transformers Revolutionized AI:**
+
+- ✅ Process tokens in parallel (massive speed gain)
+- ✅ Handle long-range dependencies across sequences
+- ✅ Scale efficiently with data and compute
+- ✅ Learn rich contextual understanding
+- ✅ Generate human-like, coherent responses
+
+---
+
+## 7. Real-World Applications
+
+LLMs are deployed across diverse high-value domains:
+
+| Domain | Use Cases |
+|---|---|
+| 💬 **Conversational AI** | Chatbots, virtual assistants, customer support |
+| 💻 **Developer Tooling** | Code generation, code review, documentation |
+| 🛡️ **Security Automation** | Threat modeling, SAST/DAST assistance, incident analysis |
+| 🏥 **Healthcare** | Clinical summarization, medical Q&A, drug research |
+| 🔍 **Search & Discovery** | Semantic search, RAG-powered knowledge bases |
+| 📄 **Document Intelligence** | Summarization, extraction, translation |
+| 🤖 **Autonomous Agents** | Multi-step task execution, workflow automation |
+
+---
+
+## 8. Security Considerations
+
+Modern LLMs introduce a new class of threats that require dedicated controls:
+
+| Risk | Description |
+|---|---|
+| **Prompt Injection** | Attacker-crafted inputs override system instructions |
+| **Jailbreak Attacks** | Techniques to bypass LLM safety guardrails |
+| **Hallucinations** | Plausible but factually incorrect outputs |
+| **Data Leakage** | PII or confidential content exposed in model responses |
+| **Model Poisoning** | Training data manipulation corrupts model behavior |
+| **System Prompt Leakage** | Internal instructions extracted by adversarial queries |
+| **Unbounded Consumption** | Excessive usage leads to resource exhaustion or cost spikes |
+| **Vector Database Attacks** | Poisoning or querying RAG pipelines to manipulate responses |
+
+> 🚨 **Key Insight:** Securing an LLM application requires controls at every layer — input validation, output sanitization, access control, rate limiting, monitoring, and responsible AI governance.
+
+---
+
+## 9. Further Learning Topics
+
+| Topic | Relevance |
+|---|---|
+| Embeddings & Vector Spaces | Foundation for semantic search and RAG |
+| Vector Databases | Storage and retrieval for RAG pipelines |
+| Retrieval-Augmented Generation (RAG) | Grounding LLMs with external knowledge |
+| Fine-Tuning | Adapting pre-trained models to specific domains |
+| Prompt Engineering | Designing effective, secure, and robust prompts |
+| Multi-Head Attention | Core mechanism behind Transformer performance |
+| Decoder-only Transformers | Architecture used by GPT-family models |
+| Mixture of Experts (MoE) | Scaling LLMs efficiently |
+| AI Security & OWASP Top 10 | Protecting LLM applications in production |
+
+---
+
+## 10. Author
+
+<div align="center">
 
 **AI Security | Application Security | DevSecOps | LLM Security**
 
-Focused on:
-- Secure AI
-- AI Security Automation
-- OWASP Top 10 for LLM
-- Cloud & Kubernetes Security
-- Secure SDLC
-- Responsible AI
+| Focus Area | |
+|---|---|
+| 🤖 Secure AI Engineering | 🔄 Secure SDLC Integration |
+| 🛡️ OWASP Top 10 for LLM | ☁️ Cloud & Kubernetes Security |
+| 🔍 AI Security Automation | ⚖️ Responsible & Governed AI |
 
 ---
 
-# ⭐ If you found this useful
+*If you found this repository useful — ⭐ star it, share it with the AI & Security community, and contribute improvements.*
 
-- Star ⭐ the repository
-- Share with the AI & Security community
-- Contribute improvements
-- Explore more AI Security learning content
-
-
-
-# Embeddings + Positions and Transformer (Attention + FFN)
-
-This document explains how input text is converted into vectors, enriched with positional information, and processed by a Transformer block using **Multi-Head Self-Attention**, **Feed-Forward Networks (FFN)**, **Residual Connections**, and **Layer Normalization**.
-
-> Example question used across the visuals: **“What is cloud Security?”**
-
----
-
-## 1. End-to-End View: Embeddings + Positions → Transformer
-
-The full flow starts with input tokens, converts each token into a vector, adds positional encodings, and sends the result into the Transformer block.
-
-<p align="center">
-  <img src="[https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/1)Embedding%20Positions%20and%20Transformer%20(AttentionFFN).png]" alt="Embeddings, Positions and Transformer Attention FFN Overview" width="100%" />
-</p>
-
-### Key Points
-
-- **Token embeddings** capture the meaning of each token.
-- **Position encodings** capture the order of tokens in the sentence.
-- **Embedding + position vectors** become the input to the Transformer.
-- **Self-attention** helps each token understand other relevant tokens.
-- **FFN** refines each token representation independently.
-- **Residual connections + layer normalization** stabilize training and preserve information.
-
----
-
-## 2. Token Embeddings
-
-Token embeddings convert each word/token into a dense numerical vector. These vectors are learned during model training.
-
-For example, the sentence:
-
-```text
-What is cloud Security?
-```
-
-is tokenized as:
-
-```text
-[What, is, cloud, Security, ?]
-```
-
-Each token is mapped to a vector of size `d_model = 6` in this simplified example.
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/2) TOKEN EMBEDDINGS(1).png" alt="Token Embeddings Example" width="100%" />
-</p>
-
-### Interpretation
-
-- Each row represents the learned vector for one token.
-- Similar words usually have closer vector representations.
-- Embeddings capture semantic meaning, but they do **not** capture token order by themselves.
-
----
-
-## 3. Position Encodings
-
-Position encodings add order information to the model. Without position encodings, the model may know the token meanings but not where each token appears in the sentence.
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3) POSITION ENCODINGS(1).png" alt="Position Encodings Heatmap and Explanation" width="100%" />
-</p>
-
-### Why Position Encoding Is Needed
-
-For the sentence:
-
-```text
-What is cloud Security?
-```
-
-The model must know:
-
-- `What` is at position 1
-- `is` is at position 2
-- `cloud` is at position 3
-- `Security` is at position 4
-- `?` is at position 5
-
-Position encoding injects this order information into the input vector.
-
----
-
-## 3.1 Sinusoidal Position Encoding
-
-The original Transformer uses fixed sinusoidal functions for positional encoding.
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3.1) POSITION ENCODINGS(1).png" alt="Sinusoidal Position Encoding Formula and Matrix" width="100%" />
-</p>
-
-### Formula
-
-For even dimensions:
-
-```text
-PE(pos, 2i) = sin(pos / 10000^(2i / d_model))
-```
-
-For odd dimensions:
-
-```text
-PE(pos, 2i + 1) = cos(pos / 10000^(2i / d_model))
-```
-
-Where:
-
-- `pos` = token position
-- `i` = dimension pair index
-- `d_model` = embedding dimension
-
-### Interpretation
-
-- Even dimensions use `sin()`.
-- Odd dimensions use `cos()`.
-- Different dimensions use different frequencies.
-- This helps the model learn both short-range and long-range token order relationships.
-
----
-
-## 3.2 Step-by-Step Position Encoding Calculation
-
-This visual explains the positional encoding calculation step by step using `d_model = 6`.
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3.2) POSITION ENCODINGS with Example(1).png" alt="Step-by-Step Sinusoidal Position Encoding Calculation" width="100%" />
-</p>
-
-### Calculation Flow
-
-1. Set embedding dimension: `d_model = 6`.
-2. Define dimension indexes: `0, 1, 2, 3, 4, 5`.
-3. Compute frequency terms.
-4. Compute angles using position and frequency.
-5. Apply `sin()` for even dimensions.
-6. Apply `cos()` for odd dimensions.
-7. Build the final positional encoding matrix.
-
-### Key Takeaway
-
-Position encoding creates a unique vector for each position. This vector is added to the token embedding before sending the input to the Transformer.
-
----
-
-## 4. Embedding + Position
-
-The final input vector to the Transformer is created by adding the token embedding and the position encoding element by element.
-
-```text
-xᵢ = eᵢ + pᵢ
-```
-
-Where:
-
-- `eᵢ` = learned token embedding
-- `pᵢ` = positional encoding
-- `xᵢ` = final input vector to the Transformer
-
-<p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/4) EMBEDDING + POSITION(1).png" alt="Embedding Plus Position Input to Transformer" width="100%" />
-</p>
-
-### Interpretation
-
-- `eᵢ` tells the model what the token means.
-- `pᵢ` tells the model where the token is located.
-- `xᵢ` gives the model both meaning and order.
-
----
-
-## 5. Transformer Block Summary
-
-After embedding and position information are combined, the vectors are passed into the Transformer block.
-
-### Multi-Head Self-Attention
-
-Self-attention allows each token to look at all other tokens and decide which ones are most important for context.
-
-Example:
-
-For the token **cloud**, the model may pay more attention to:
-
-- **Security** because it defines the context
-- **is** because it helps sentence structure
-- **What** because it indicates a question
-
-### Feed-Forward Network
-
-The FFN is applied independently to each token position. It refines the contextual representation created by attention.
-
-### Residual Connection + Layer Normalization
-
-These improve training stability and help preserve the original information while adding learned transformations.
-
----
-
-## Final Summary
-
-```text
-Input Text
-   ↓
-Tokens
-   ↓
-Token Embeddings
-   ↓
-Position Encodings
-   ↓
-Embedding + Position
-   ↓
-Transformer Block
-   ↓
-Contextualized Output Vectors
-```
-
-The final output vectors understand both:
-
-- the **meaning** of each token, and
-- the **context** of the full sentence.
-
----
-
-## Image Tags for GitHub Markdown
-
-```html
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/1) Embedding Positions and Transformer (Attention + FFN)(1).png" alt="Embeddings, Positions and Transformer Attention FFN Overview" width="100%" />
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/2) TOKEN EMBEDDINGS(1).png" alt="Token Embeddings Example" width="100%" />
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3) POSITION ENCODINGS(1).png" alt="Position Encodings Heatmap and Explanation" width="100%" />
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3.1) POSITION ENCODINGS(1).png" alt="Sinusoidal Position Encoding Formula and Matrix" width="100%" />
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/3.2) POSITION ENCODINGS with Example(1).png" alt="Step-by-Step Sinusoidal Position Encoding Calculation" width="100%" />
-<img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/4) EMBEDDING + POSITION(1).png" alt="Embedding Plus Position Input to Transformer" width="100%" />
-```
-
-
-
-
-
-
-In today’s AI-driven world, securing LLM applications is no longer optional — it is a critical business, privacy, and operational requirement. Organizations that proactively adopt AI Security, governance, and secure AI engineering practices will be better positioned to innovate safely, protect sensitive data, and maintain customer trust.
-
-
+</div>
