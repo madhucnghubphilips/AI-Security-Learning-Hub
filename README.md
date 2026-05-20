@@ -42,6 +42,16 @@ Enable secure AI innovation across the SDLC
 
 <h1 align="center"><font face="Arial">How LLM Works</font></h1>
 
+
+# 🚀 How a Large Language Model (LLM) Works Internally
+
+<p align="center">
+  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="LLM Architecture Overview"/>
+  </p>
+
+---
+
+
 In today’s AI-driven world, securing LLM applications is no longer optional — it is a critical business, privacy, and operational requirement. Organizations that proactively adopt AI Security, governance, and secure AI engineering practices will be better positioned to innovate safely, protect sensitive data, and maintain customer trust.
 
 
