@@ -500,7 +500,7 @@ This document explains how input text is converted into vectors, enriched with p
 The full flow starts with input tokens, converts each token into a vector, adds positional encodings, and sends the result into the Transformer block.
 
 <p align="center">
-  <img src="https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/1) Embedding Positions and Transformer (Attention + FFN)(1).png" alt="Embeddings, Positions and Transformer Attention FFN Overview" width="100%" />
+  <img src="[https://github.com/madhucnghubphilips/AI-Security/blob/main/Resources/1)Embedding%20Positions%20and%20Transformer%20(AttentionFFN).png]" alt="Embeddings, Positions and Transformer Attention FFN Overview" width="100%" />
 </p>
 
 ### Key Points
