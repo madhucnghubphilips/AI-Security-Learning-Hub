@@ -1,0 +1,92 @@
+https://openai.com/index/march-20-chatgpt-outage/?utm_source=chatgpt.com
+
+OpenAI ChatGPT Data Leak Incident (March 2023) — Detailed Explanation
+
+One of the earliest and most important OpenAI security incidents happened in March 2023, when some ChatGPT users were able to see information belonging to other users due to a software bug.
+
+What Happened?
+
+OpenAI temporarily took ChatGPT offline after discovering a bug in an open-source library called redis-py that affected caching behavior in ChatGPT.
+
+Because of this issue:
+
+Some users could see titles of other users’ chat histories
+In certain cases, the first message of another user’s conversation became visible
+A small percentage of ChatGPT Plus users also had limited billing-related information exposed:
+First and last name
+Email address
+Payment address
+Last 4 digits of credit cards
+Card expiration dates
+
+OpenAI stated that approximately 1.2% of ChatGPT Plus subscribers active during a specific time window may have had payment information exposed
+
+Why This Matters for “LLM06 – Excessive Agency”
+
+This incident is often discussed in AI security because it showed how:
+
+AI systems connected to multiple components/plugins/cache layers can accidentally expose data
+Weak isolation boundaries can allow unintended cross-user access
+AI ecosystems become risky when integrations, plugins, or memory systems behave beyond intended scope
+
+The AI itself was not “hacking,” but the surrounding autonomous platform behavior exposed data beyond intended authorization boundaries.
+
+That aligns strongly with:
+
+“AI system actions exceeding intended authority or isolation.”
+
+
+
+Root Cause (Technical)
+
+The issue was traced to:
+
+A bug in Redis caching infrastructure
+Async request handling problems
+Shared cached responses between users under certain conditions
+
+This became a major lesson for:
+
+AI memory isolation
+Multi-tenant AI security
+Plugin security
+Session management
+AI infrastructure governance
+
+
+
+
+What OpenAI Did
+
+OpenAI responded quickly by:
+
+Taking ChatGPT offline temporarily
+Fixing the Redis library issue
+Notifying affected users
+Improving monitoring and isolation controls
+Publishing a public incident report with technical details
+
+
+
+
+
+Leadership Lessons Learned
+1. AI Systems Need Zero-Trust Architecture
+
+Do not assume AI memory/session boundaries are always safe.
+
+2. AI Plugins & Integrations Increase Risk
+
+Every plugin, tool, connector, and cache layer increases attack surface.
+
+3. Human Oversight Is Critical
+
+Autonomous AI workflows require monitoring, approval, and auditing.
+
+4. AI Data Isolation Must Be Strong
+
+Healthcare, finance, and enterprise AI systems require strict tenant separation.
+
+5. AI Governance Is Not Optional
+
+Security, legal, compliance, and engineering teams must jointly govern AI systems.

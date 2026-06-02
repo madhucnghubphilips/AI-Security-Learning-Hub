@@ -1,0 +1,14 @@
+Philips EncorePro 2 Patient Management System v3.5
+Clinic: Sleep Disorders Unit, Manipal Hospitals Mumbai
+Patient: Ravi Menon (SRC-PT-20260521-011)
+Device: DreamStation BiPAP autoSV
+
+THERAPY SUMMARY
+  Mode: IPAP 14 cmH2O / EPAP 8 cmH2O
+  Compliance: 76% (target: >70%)
+  AHI: 3.2 events/hr
+  Clinician: Dr. Ananya Sharma, Sleep Medicine
+
+REPORT SYSTEM NOTE
+  Script-based injection blocked: <script and </script tags refused.
+  All other HTML including <meta>, <iframe>, event handlers — passed through unmodified.

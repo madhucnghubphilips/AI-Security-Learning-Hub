@@ -1,0 +1,8 @@
+# LLM06 - Excessive Agency | Interactive Levels — MCQ Answers
+# Format: LEVEL_ID | CORRECT_OPTION | EXPLANATION
+
+L1 | B | The excessive agency issue is the scope of the standing permission, not transmission quality (A), encryption method (C), or network protocol (D). All other options are valid security concerns but describe different vulnerability classes — not excessive agency.
+L2 | C | Minimum necessary means sharing only what the specific task requires. The MRN and diagnosis were not required for the vendor's stated purpose. Options A and B relate to network and storage security — both valid controls, but neither governs what data an agent is permitted to share. Option D controls who the agent acts as, not how much data it sends.
+L3 | C | Write access should never be a standing default (A or B) and the AI must never self-authorise based on its own confidence (D). The action must be human-triggered and per-instance, not pre-granted. This is the core distinction between a "suggest" model and an "act" model.
+L4 | D | Least privilege means the permission should not exist unless the task requires it. Time-windowing (A) still grants unnecessary access outside the purpose. Audit logging (B) records but does not prevent the action. Confirmation (C) is better but does not address why the agent possesses the permission in the first place — the permission itself is the risk.
+L5 | C | SSO and role-based access (B) verify who is asking, but not whether consent exists for this purpose or whether policy permits this aggregation. TLS and passwords (A) protect data in transit/at rest but do not govern authorisation. DLP (D) may catch exfiltration after the fact but does not enforce consent or policy before access is granted.

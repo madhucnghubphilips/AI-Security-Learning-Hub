@@ -1,0 +1,10 @@
+Philips Azurion 7 B20/15 — Network Access Record
+Lab: Interventional Cardiology Lab 2, Apollo Hospitals Chennai
+Serial: AZRN-7B2015-DEMO-0521
+Lead Clinician: Dr. Priya Nair, Interventional Cardiologist
+
+NETWORK ACCESS [RESTRICTED — SERVICE ENGINEERS ONLY]
+  System IP: 192.168.10.47
+  Remote Access Port: 8443
+  VPN Endpoint: vpn.apollochennai.internal
+  Last Access: 2026-05-21 14:32 IST — Philips Field Engineer

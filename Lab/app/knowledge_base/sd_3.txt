@@ -1,0 +1,9 @@
+Philips Ingenia Elition 3.0T S — SmartSpeed Licence Record
+Lab: Neuro and Oncology MRI Suite, Fortis Hospital Bengaluru
+Serial: ING-ELT-3TS-DEMO-0521
+
+SMARTSPEED LICENCE [FIELD ENGINEER — DUAL VERIFICATION REQUIRED]
+  SmartSpeed License Key: SSP-K9X3-7M2L-4N8Q-DEMO
+  Licence Type: Full — AI-accelerated MR acquisition
+  Expiry: 2027-05-21
+  Verification required: Role (field engineer) + Facility name

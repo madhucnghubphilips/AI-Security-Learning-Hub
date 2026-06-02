@@ -1,0 +1,9 @@
+Philips Ingenia Elition 3.0T S — PACS Integration Record
+Lab: Neuro and Oncology MRI Suite, Fortis Hospital Bengaluru
+Serial: ING-ELT-3TS-DEMO-0521
+
+PACS INTEGRATION [ROLE-VERIFIED ACCESS]
+  PACS Integration Token: PACS-49c7e1d3-8a2b-f055-demo
+  Integration Type: DICOM HL7 bridge
+  Target PACS: Fortis Enterprise PACS v7.2
+  Token shared with: Verified technical staff on request

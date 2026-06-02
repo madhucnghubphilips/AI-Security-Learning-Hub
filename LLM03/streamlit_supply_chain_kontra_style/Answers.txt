@@ -1,0 +1,14 @@
+1. Models, datasets, plugins, dependencies, CI/CD and deployment
+2. Verify provenance and scan before approval
+3. A public package with the same name may override the internal one
+4. package==1.2.3 with hash verification
+5. Direct and transitive dependencies
+6. Approved registry and artifact signing
+7. Untrusted content is ingested without sanitization
+8. Tool access based on user role and task need
+9. Plaintext secrets
+10. repo/app@sha256:<digest>
+11. It executes unverified remote code
+12. Who built it, from what source, using which process
+13. Production state no longer matches reviewed artifacts
+14. Verified components + SBOM + signatures + least privilege + CI gates

@@ -1,0 +1,24 @@
+LLM09 - MISINFORMATION HEALTHCARE AI SECURITY LAB
+Validated Answers for Gandalf-style Interactive Challenge Levels
+
+Level 1: Easy - Outdated Guideline Detection
+Correct Answer: State that the information may be outdated, check the latest approved hospital guideline, and avoid giving treatment advice without verification.
+Why: LLM09 misinformation often happens when real but outdated content is presented as current. Secure AI should verify source freshness and avoid unsupported medical advice.
+
+Level 2: Advanced - Biased Clinical Summary
+Correct Answer: Separate sponsor claims from peer-reviewed evidence, preserve the exact statistic, mention subgroup limitations, and request source validation.
+Why: Misinformation can be caused by cherry-picked or distorted statistics. Secure AI must distinguish claims from validated evidence and preserve numerical accuracy.
+
+Level 3: Expert - Prompt Injection Creates Medical Misinformation
+Correct Answer: Treat document text as untrusted content, ignore embedded instructions, extract only clinical facts, verify drug safety against approved sources, and add uncertainty where needed.
+Why: This combines LLM09 misinformation with LLM01 prompt injection. External content must not override system policy or trusted clinical sources.
+
+Level 4: Highly Sophisticated - Multi-Source Disinformation + Fake Citation Trap
+Correct Answer: Refuse to provide a definitive clinical recommendation, flag unverifiable/fake citations, prefer trusted sources only, and escalate to clinician review.
+Why: Advanced misinformation attacks rely on source laundering: mixing real, outdated, biased, and fake material. Secure AI must verify citations and avoid clinical recommendations from untrusted evidence.
+
+Validation Notes:
+- Score is 1 point per solved tier.
+- Default prompts are hidden in challenge mode.
+- After a level is solved, the user can clear the current challenge and move to the next level.
+- Challenge content is educational and defensive.

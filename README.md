@@ -1,461 +1,219 @@
-<div align="center">
+# AI Security Learning Notes
 
-# 🛡️ AI Security — OWASP Top 10 for LLM Applications
-
-> **Hands-on Experience, Threat Understanding & Mitigations**
-
-<img src="Resources/Logo.png" height="300" width="300" alt="AI Security Logo" />
-
-<br/>
-
-![AI Security](https://img.shields.io/badge/AI-Security-7B2FBE?style=for-the-badge)
-![LLM Security](https://img.shields.io/badge/LLM-Security-5C2D91?style=for-the-badge)
-![Artificial Intelligence](https://img.shields.io/badge/Artificial-Intelligence-9B30FF?style=for-the-badge)
-![Data Leakage Prevention](https://img.shields.io/badge/Data%20Leakage-Prevention-yellowgreen?style=for-the-badge)
-![Supply Chain Security](https://img.shields.io/badge/Supply%20Chain-Security-green?style=for-the-badge)
-![Secure Prompt Design](https://img.shields.io/badge/Secure%20Prompt-Design-blueviolet?style=for-the-badge)
-![RAG](https://img.shields.io/badge/RAG-Retrieval%20Augmented%20Generation-orange?style=for-the-badge)
-
-</div>
+This repository follows a recommended learning flow for AI, LLMs, prompt engineering, responsible AI, and AI security concepts.
 
 ---
 
-## 📋 Table of Contents
+## Recommended Flow
 
-1. [Executive Overview](#1-executive-overview)
-2. [Why AI Security Matters](#2-why-ai-security-matters)
-3. [OWASP Top 10 for LLM Applications](#3-owasp-top-10-for-llm-applications)
-4. [How a Large Language Model Works](#4-how-a-large-language-model-works)
-   - 4.1 [LLM Pipeline Overview](#41-llm-pipeline-overview)
-   - 4.2 [Step 1 — Tokenization & Embeddings](#42-step-1--tokenization--embeddings)
-   - 4.3 [Step 2 — Transformer Neural Network](#43-step-2--transformer-neural-network)
-   - 4.4 [Step 3 — Attention Mechanism](#44-step-3--attention-mechanism)
-   - 4.5 [Step 4 — Output Prediction](#45-step-4--output-prediction)
-   - 4.6 [Step 5 — Final Response Generation](#46-step-5--final-response-generation)
-5. [Deep Dive: Embeddings, Positions & Transformer](#5-deep-dive-embeddings-positions--transformer)
-   - 5.1 [End-to-End Architecture View](#51-end-to-end-architecture-view)
-   - 5.2 [Token Embeddings](#52-token-embeddings)
-   - 5.3 [Positional Encoding](#53-positional-encoding)
-   - 5.4 [Sinusoidal Encoding Formula](#54-sinusoidal-encoding-formula)
-   - 5.5 [Embedding + Position Combined](#55-embedding--position-combined)
-   - 5.6 [Transformer Block Internals](#56-transformer-block-internals)
-6. [Key Concepts Summary](#6-key-concepts-summary)
-7. [Real-World Applications](#7-real-world-applications)
-8. [Security Considerations](#8-security-considerations)
-9. [Further Learning Topics](#9-further-learning-topics)
-10. [Author](#10-author)
+1. [What is AI?](#1-what-is-ai)
+   - Traditional Programming vs AI
+2. [What is Machine Learning?](#2-what-is-machine-learning)
+   - Supervised, Unsupervised, Reinforcement Learning
+3. [How LLM Works](#3-how-llm-works)
+   - Tokens -> Embeddings -> Attention -> Prediction
+4. [Why GPUs Are Important for AI](#4-why-gpus-are-important-for-ai)
+   - Parallel processing and model training
+5. [Prompt Engineering](#5-prompt-engineering)
+   - System Prompt, User Prompt, Context Window
+6. [Jailbreak Attacks](#6-jailbreak-attacks)
+   - Bypassing AI guardrails
+7. [Hallucinations](#7-hallucinations)
+   - Why AI generates incorrect information
+8. [13 Responsible AI Principles](#8-13-responsible-ai-principles)
+   - Safety, Fairness, Transparency, Accountability, Privacy, and related principles
+9. [RAG (Retrieval-Augmented Generation)](#9-rag-retrieval-augmented-generation)
+   - Grounding responses with enterprise data
+10. [MCP (Model Context Protocol)](#10-mcp-model-context-protocol)
+    - Connecting AI to tools, APIs, and data sources
 
 ---
 
-## 1. Executive Overview
+## 1. What is AI?
 
-The rapid adoption of Artificial Intelligence and Large Language Models (LLMs) is transforming how organizations build applications, automate operations, and interact with users. From AI chatbots and copilots to autonomous agents and enterprise automation platforms, LLMs are becoming a core part of modern digital ecosystems.
+Artificial Intelligence is the ability of machines to perform tasks that normally require human intelligence, such as understanding language, recognizing patterns, making decisions, and solving problems.
 
-However, alongside innovation comes a new generation of security risks. Traditional application security controls alone are no longer sufficient to protect AI-driven systems. LLMs introduce unique attack surfaces such as **Prompt Injection**, **Sensitive Information Disclosure**, **Model Poisoning**, **Excessive Agency**, **System Prompt Leakage**, and **Vector Database Attacks**.
+### Traditional Programming vs AI
 
-To address these emerging threats, the **OWASP Foundation** introduced the **OWASP Top 10 for LLM Applications** — a globally recognized awareness and risk management framework focused on securing AI and Generative AI ecosystems.
-
-> 💡 **In today's AI-driven world, securing LLM applications is no longer optional — it is a critical business, privacy, and operational requirement.**
-
----
-
-## 2. Why AI Security Matters
-
-The OWASP Top 10 for LLMs helps organizations:
-
-| Business Goal | How AI Security Enables It |
+| Traditional Programming | AI / Machine Learning |
 |---|---|
-| 🔍 Risk Awareness | Understand the most critical AI security threats |
-| 🔒 Secure Workflows | Protect AI-powered applications and pipelines |
-| 🏗️ Secure by Design | Implement Secure-by-Design AI architectures |
-| 📋 Governance & Compliance | Build GenAI governance and compliance controls |
-| 🚀 Safe Innovation | Enable secure AI adoption across the entire SDLC |
+| Humans write exact rules. | Models learn patterns from data. |
+| Logic is explicitly coded. | Logic is learned during training. |
+| Works best for predictable tasks. | Works well for complex, pattern-heavy tasks. |
+| Output changes only when code changes. | Output can improve as data and models improve. |
 
-Organizations that proactively adopt AI Security, governance, and secure engineering practices will be better positioned to **innovate safely**, **protect sensitive data**, and **maintain customer trust**.
+Traditional programming follows rules written by developers. AI systems learn from examples and use learned patterns to make predictions or generate responses.
 
 ---
 
-## 3. OWASP Top 10 for LLM Applications
+## 2. What is Machine Learning?
 
-The framework highlights the ten most impactful vulnerabilities affecting LLM-based systems:
+Machine Learning is a subset of AI where systems learn patterns from data instead of being programmed with every rule manually.
 
-| # | Vulnerability | Risk Summary |
+### Main Learning Types
+
+| Type | Meaning | Example |
 |---|---|---|
-| **LLM01** | 💉 Prompt Injection | Malicious inputs manipulate LLM behavior or override system instructions |
-| **LLM02** | 🔓 Sensitive Information Disclosure | LLMs inadvertently reveal confidential data, PII, or proprietary content |
-| **LLM03** | 🔗 Supply Chain Vulnerabilities | Compromised models, datasets, or third-party integrations introduce risks |
-| **LLM04** | ☠️ Data and Model Poisoning | Training data manipulation degrades model integrity and trustworthiness |
-| **LLM05** | ⚠️ Improper Output Handling | Unvalidated LLM outputs are passed to downstream systems without sanitization |
-| **LLM06** | 🤖 Excessive Agency | LLMs are granted excessive permissions, enabling unintended autonomous actions |
-| **LLM07** | 🕵️ System Prompt Leakage | Internal system instructions are extracted and exposed by adversaries |
-| **LLM08** | 🗄️ Vector and Embedding Weaknesses | Attacks on vector databases undermine RAG pipeline integrity |
-| **LLM09** | 🌫️ Misinformation | LLMs generate plausible but factually incorrect content (hallucinations) |
-| **LLM10** | 💸 Unbounded Consumption | Uncontrolled LLM usage leads to excessive resource consumption and cost |
+| Supervised Learning | Learns from labeled examples. | Classifying emails as spam or not spam. |
+| Unsupervised Learning | Finds patterns in unlabeled data. | Grouping similar customers or documents. |
+| Reinforcement Learning | Learns through rewards and penalties. | Training agents to make better decisions over time. |
+
+Machine learning is the foundation for many modern AI systems, including recommendation engines, fraud detection, computer vision, and language models.
 
 ---
 
-## 4. How a Large Language Model Works
+## 3. How LLM Works
 
-### 4.1 LLM Pipeline Overview
+Large Language Models process and generate text by converting input into tokens, transforming those tokens into embeddings, using attention to understand context, and predicting the next likely token.
 
-LLMs such as GPT, Gemini, Claude, and Llama process human language using advanced neural network architectures called **Transformers**. The full pipeline is:
+<p align="center">
+  <img src="Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="How LLM Works" />
+</p>
 
-```
-Input Text  →  Tokenization  →  Embeddings  →  Transformer Layers
-     ↓
-Attention Mechanism  →  Next Token Prediction  →  Final Human-like Response
+### Tokens -> Embeddings -> Attention -> Prediction
+
+```text
+Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Response
 ```
 
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="LLM Architecture Overview"/>
-</p>
+| Step | What happens |
+|---|---|
+| Tokens | Text is split into smaller pieces the model can process. |
+| Embeddings | Tokens are converted into numerical vectors that capture meaning. |
+| Attention | The model decides which parts of the input are most relevant. |
+| Prediction | The model predicts the next token and repeats until the response is complete. |
 
 ---
 
-### 4.2 Step 1 — Tokenization & Embeddings
+## 4. Why GPUs Are Important for AI
 
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%202.png" width="100%" alt="LLM End-to-End Workflow"/>
-</p>
+GPUs are important for AI because they perform many mathematical operations in parallel. AI models rely on large-scale matrix and vector calculations, especially during model training and inference.
 
-#### 🔹 Tokenization
+### Parallel Processing and Model Training
 
-The input sentence is broken into smaller units called **tokens**:
-
-```
-Input:  "What is cloud security?"
-Tokens: ["What", "is", "cloud", "security", "?"]
-```
-
-Each token is mapped to a numeric ID:
-
-| Token | Token ID |
+| GPU Strength | Why it matters |
 |---|---|
-| What | 1011 |
-| is | 2053 |
-| cloud | 5024 |
-| security | 9617 |
-| ? | 102 |
+| Parallel processing | Runs many calculations at the same time. |
+| Faster training | Helps train large models on huge datasets. |
+| Faster inference | Produces AI responses more quickly. |
+| Scalability | Multiple GPUs can be combined for larger workloads. |
 
-#### 🔹 Embeddings
-
-Tokens are transformed into high-dimensional vectors that capture:
-
-| Property | Description |
-|---|---|
-| Semantic Meaning | What the word means |
-| Relationships | How words relate to each other |
-| Context | How meaning changes with usage |
-| Similarity | Words with similar meanings cluster together |
-
-**Example:** `cloud → [0.21, 0.87, 0.45, 0.12 ...]`
+Without GPUs, training modern AI models would be much slower and more expensive.
 
 ---
 
-### 4.3 Step 2 — Transformer Neural Network
+## 5. Prompt Engineering
 
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%203.png" width="100%" alt="Transformer Neural Network"/>
-</p>
+Prompt Engineering is the practice of writing clear, structured instructions so an AI system produces useful, accurate, and safe responses.
 
-The Transformer is the core neural architecture behind modern LLMs. It processes all tokens **in parallel** and understands relationships between words.
+### System Prompt, User Prompt, Context Window
 
-**Main Components:**
-
-| Component | Role |
+| Prompt Concept | Meaning |
 |---|---|
-| Multi-Head Self-Attention | Focuses on different parts of the sentence simultaneously |
-| Feed Forward Network (FFN) | Applies nonlinear transformations to deepen understanding |
-| Add & Norm | Stabilizes training and preserves original information |
-| Positional Encoding | Injects word-order information into parallel processing |
+| System Prompt | High-priority instruction that defines the model's role, behavior, and boundaries. |
+| User Prompt | The user's request or question. |
+| Context Window | The amount of text, instructions, and retrieved information the model can consider at once. |
 
-**Transformer Block Flow:**
-
-```
-Input Embedding  →  Multi-Head Attention  →  Add & Norm
-                              ↓
-               Feed Forward Network  →  Add & Norm  →  Output
-```
-
-This block repeats across many layers, progressively building richer understanding.
+Good prompts provide clear intent, useful context, constraints, and expected output format.
 
 ---
 
-### 4.4 Step 3 — Attention Mechanism
+## 6. Jailbreak Attacks
 
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%204%20ATTENTION%20MECHANISM.png" width="100%" alt="Attention Mechanism"/>
-</p>
+Jailbreak attacks are attempts to bypass AI safety controls or guardrails. Attackers may try to make the model ignore instructions, reveal restricted information, or produce unsafe content.
 
-Attention answers the question: **"Which words should I focus on to understand this word?"**
+### Bypassing AI Guardrails
 
-**Example — Understanding "security" in "What is cloud security?"**
+Common jailbreak techniques include:
 
-| Token | Attention Weight |
+| Technique | Description |
 |---|---|
-| cloud | High — defines the domain |
-| security | High — the subject itself |
-| is | Medium — sentence structure |
-| What | Lower — question context |
+| Instruction override | Asking the model to ignore previous rules. |
+| Role-play | Framing unsafe requests as fictional scenarios. |
+| Obfuscation | Hiding intent through encoding, translation, or indirect wording. |
+| Multi-step prompting | Gradually steering the model toward restricted behavior. |
 
-#### QKV Mechanism
-
-Each token generates three vectors used to compute attention scores:
-
-| Vector | Purpose |
-|---|---|
-| **Q** (Query) | What information am I looking for? |
-| **K** (Key) | What information do I hold? |
-| **V** (Value) | What should I pass forward? |
-
-**Attention Formula:**
-
-$$\text{Attention}(Q, K, V) = \text{Softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right)V$$
-
-| Term | Role |
-|---|---|
-| $QK^\top$ | Computes similarity scores between tokens |
-| $\text{Softmax}$ | Normalizes scores into probabilities |
-| $\sqrt{d_k}$ | Scaling factor to prevent gradient issues |
-| $V$ | Weighted information passed forward |
+Strong system prompts, input validation, output checks, monitoring, and least-privilege tool access help reduce jailbreak risk.
 
 ---
 
-### 4.5 Step 4 — Output Prediction
+## 7. Hallucinations
 
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%205.png" width="100%" alt="Predicting Output"/>
-</p>
+Hallucinations happen when an AI system generates information that sounds confident but is incorrect, unsupported, or fabricated.
 
-LLMs generate responses **one token at a time**. For the input `"What is cloud security?"`, the model might predict:
+### Why AI Generates Incorrect Information
 
-| Next Token | Probability |
+AI models generate likely text based on learned patterns. They do not automatically know whether every generated statement is true unless they are grounded with reliable context or verified sources.
+
+| Cause | Example |
 |---|---|
-| protect | 0.31 |
-| data | 0.25 |
-| secure | 0.15 |
-| manage | 0.07 |
+| Missing context | The model guesses when it lacks enough information. |
+| Outdated knowledge | The model may not know recent facts. |
+| Ambiguous prompt | The model fills gaps with assumptions. |
+| No source grounding | The model answers without trusted references. |
 
-The highest probability token is selected, then appended to the input, and the process repeats until an `<eos>` (end-of-sequence) token is generated.
-
----
-
-### 4.6 Step 5 — Final Response Generation
-
-Generated tokens are decoded and combined into a coherent human-readable response:
-
-> **"Cloud security protects data, applications, and infrastructure from unauthorized access, threats, and breaches."**
+RAG, citations, validation, and human review can reduce hallucinations in important workflows.
 
 ---
 
-## 5. Deep Dive: Embeddings, Positions & Transformer
+## 8. 13 Responsible AI Principles
 
-> Example sentence used throughout this section: **"What is cloud Security?"**
+Responsible AI focuses on building AI systems that are safe, fair, transparent, accountable, and aligned with human values.
 
-### 5.1 End-to-End Architecture View
+### Key Responsible AI Principles
 
-<p align="center">
-  <img src="Resources/1)Embedding%20Positions%20and%20Transformer%20(AttentionFFN).png" width="100%" alt="Embeddings, Positions and Transformer — Full Architecture"/>
-</p>
+| # | Principle | Meaning |
+|---|---|---|
+| 1 | Safety | Avoid harmful or unsafe outcomes. |
+| 2 | Fairness | Reduce bias and unequal treatment. |
+| 3 | Transparency | Make AI behavior and limitations understandable. |
+| 4 | Accountability | Keep humans and organizations responsible for outcomes. |
+| 5 | Privacy | Protect personal and sensitive data. |
+| 6 | Security | Defend AI systems from misuse and attack. |
+| 7 | Reliability | Ensure consistent and dependable behavior. |
+| 8 | Robustness | Perform well under unexpected or adversarial inputs. |
+| 9 | Explainability | Help users understand why outputs were produced. |
+| 10 | Human Oversight | Keep humans involved in high-impact decisions. |
+| 11 | Inclusiveness | Design for diverse users and needs. |
+| 12 | Governance | Use policies, controls, and review processes. |
+| 13 | Sustainability | Consider environmental and operational impact. |
 
-The full pipeline from input tokens to contextualized output vectors:
+These principles help teams build AI that can be trusted in real-world environments.
 
-```
-Input Text  →  Tokens  →  Token Embeddings  →  + Position Encodings
-                                                         ↓
-                                              Transformer Block
-                                                         ↓
-                                         Contextualized Output Vectors
+---
+
+## 9. RAG (Retrieval-Augmented Generation)
+
+RAG improves AI responses by retrieving trusted external knowledge before generating an answer. This helps the model ground responses in enterprise data, documents, policies, or knowledge bases.
+
+### Grounding Responses with Enterprise Data
+
+```text
+User question -> Retrieve relevant enterprise data -> Add context to prompt -> Generate grounded answer
 ```
 
----
-
-### 5.2 Token Embeddings
-
-<p align="center">
-  <img src="Resources/2)%20TOKEN%20EMBEDDINGS.png" width="100%" alt="Token Embeddings Example"/>
-</p>
-
-Token embeddings convert each word/token into a dense numerical vector learned during training. Key properties:
-
-- Each row = learned vector for one token
-- Similar words have closer vector representations
-- Embeddings capture **semantic meaning** but **not token order** — that is handled by positional encoding
-
----
-
-### 5.3 Positional Encoding
-
-<p align="center">
-  <img src="Resources/3)%20POSITION%20ENCODINGS.png" width="100%" alt="Position Encodings Heatmap"/>
-</p>
-
-Without positional encoding, the model cannot distinguish token order. For `"What is cloud Security?"`:
-
-| Position | Token |
+| Benefit | Why it helps |
 |---|---|
-| 1 | What |
-| 2 | is |
-| 3 | cloud |
-| 4 | Security |
-| 5 | ? |
+| More accurate answers | Responses are based on trusted source material. |
+| Reduced hallucinations | The model has retrieved evidence to use. |
+| Enterprise knowledge | Internal documents can guide responses. |
+| Traceability | Sources can be shown or audited. |
 
-Positional encoding injects this order information into each token vector before it enters the Transformer.
+RAG systems should validate retrieved content, protect sensitive data, and defend against prompt injection hidden inside documents.
 
 ---
 
-### 5.4 Sinusoidal Encoding Formula
+## 10. MCP (Model Context Protocol)
 
-<p align="center">
-  <img src="Resources/3.1)%20POSITION%20ENCODINGS.png" width="100%" alt="Sinusoidal Position Encoding Formula and Matrix"/>
-</p>
+MCP standardizes how AI applications connect models to tools, APIs, and data sources. It gives AI systems a structured way to access external capabilities and context.
 
-The original Transformer uses fixed sinusoidal functions:
+### Connecting AI to Tools, APIs, and Data Sources
 
-$$PE(pos,\ 2i) = \sin\!\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
-
-$$PE(pos,\ 2i+1) = \cos\!\left(\frac{pos}{10000^{2i/d_{model}}}\right)$$
-
-| Variable | Meaning |
+| MCP Area | Purpose |
 |---|---|
-| $pos$ | Token position in the sequence |
-| $i$ | Dimension pair index |
-| $d_{model}$ | Embedding dimension size |
+| Tools | Let AI systems perform controlled actions. |
+| APIs | Connect models to external services. |
+| Data sources | Provide access to files, databases, and knowledge systems. |
+| Security controls | Define what the model can access and under what conditions. |
 
-<p align="center">
-  <img src="Resources/3.2)%20POSITION%20ENCODINGS%20with%20Example.png" width="100%" alt="Step-by-Step Sinusoidal Position Encoding Calculation"/>
-</p>
-
-**Step-by-step calculation (d_model = 6):**
-
-1. Set embedding dimension: `d_model = 6`
-2. Define dimension indexes: `0, 1, 2, 3, 4, 5`
-3. Compute frequency terms per dimension
-4. Compute angles using position × frequency
-5. Apply `sin()` for even dimensions
-6. Apply `cos()` for odd dimensions
-7. Build the final positional encoding matrix
-
----
-
-### 5.5 Embedding + Position Combined
-
-<p align="center">
-  <img src="Resources/4)%20EMBEDDING%20%2B%20POSITION.png" width="100%" alt="Embedding Plus Position Input to Transformer"/>
-</p>
-
-The final input vector is the **element-wise sum** of the token embedding and positional encoding:
-
-$$x_i = e_i + p_i$$
-
-| Vector | Carries |
-|---|---|
-| $e_i$ | What the token means (semantic content) |
-| $p_i$ | Where the token appears (order/position) |
-| $x_i$ | Both meaning and order — input to Transformer |
-
----
-
-### 5.6 Transformer Block Internals
-
-Once $x_i$ vectors are ready, they flow through the Transformer block:
-
-**Multi-Head Self-Attention** — each token attends to all others; for `cloud`, the model focuses more on `Security` (context) and `is` (structure).
-
-**Feed-Forward Network (FFN)** — applied independently per token position to refine contextual representations.
-
-**Residual Connection + Layer Normalization** — preserve original information and stabilize gradient flow during training.
-
----
-
-## 6. Key Concepts Summary
-
-| Component | Role in the LLM Pipeline |
-|---|---|
-| **Tokenization** | Break raw text into processable units |
-| **Embeddings** | Convert tokens into semantic vector representations |
-| **Positional Encoding** | Add order information to parallel-processed tokens |
-| **Transformer** | Process inter-token relationships across all layers |
-| **Multi-Head Attention** | Focus dynamically on relevant context |
-| **Feed Forward Network** | Deepen and refine learned representations |
-| **Next Token Prediction** | Generate output one token at a time |
-| **Decoding** | Assemble tokens into a coherent final response |
-
-**Why Transformers Revolutionized AI:**
-
-- ✅ Process tokens in parallel (massive speed gain)
-- ✅ Handle long-range dependencies across sequences
-- ✅ Scale efficiently with data and compute
-- ✅ Learn rich contextual understanding
-- ✅ Generate human-like, coherent responses
-
----
-
-## 7. Real-World Applications
-
-LLMs are deployed across diverse high-value domains:
-
-| Domain | Use Cases |
-|---|---|
-| 💬 **Conversational AI** | Chatbots, virtual assistants, customer support |
-| 💻 **Developer Tooling** | Code generation, code review, documentation |
-| 🛡️ **Security Automation** | Threat modeling, SAST/DAST assistance, incident analysis |
-| 🏥 **Healthcare** | Clinical summarization, medical Q&A, drug research |
-| 🔍 **Search & Discovery** | Semantic search, RAG-powered knowledge bases |
-| 📄 **Document Intelligence** | Summarization, extraction, translation |
-| 🤖 **Autonomous Agents** | Multi-step task execution, workflow automation |
-
----
-
-## 8. Security Considerations
-
-Modern LLMs introduce a new class of threats that require dedicated controls:
-
-| Risk | Description |
-|---|---|
-| **Prompt Injection** | Attacker-crafted inputs override system instructions |
-| **Jailbreak Attacks** | Techniques to bypass LLM safety guardrails |
-| **Hallucinations** | Plausible but factually incorrect outputs |
-| **Data Leakage** | PII or confidential content exposed in model responses |
-| **Model Poisoning** | Training data manipulation corrupts model behavior |
-| **System Prompt Leakage** | Internal instructions extracted by adversarial queries |
-| **Unbounded Consumption** | Excessive usage leads to resource exhaustion or cost spikes |
-| **Vector Database Attacks** | Poisoning or querying RAG pipelines to manipulate responses |
-
-> 🚨 **Key Insight:** Securing an LLM application requires controls at every layer — input validation, output sanitization, access control, rate limiting, monitoring, and responsible AI governance.
-
----
-
-## 9. Further Learning Topics
-
-| Topic | Relevance |
-|---|---|
-| Embeddings & Vector Spaces | Foundation for semantic search and RAG |
-| Vector Databases | Storage and retrieval for RAG pipelines |
-| Retrieval-Augmented Generation (RAG) | Grounding LLMs with external knowledge |
-| Fine-Tuning | Adapting pre-trained models to specific domains |
-| Prompt Engineering | Designing effective, secure, and robust prompts |
-| Multi-Head Attention | Core mechanism behind Transformer performance |
-| Decoder-only Transformers | Architecture used by GPT-family models |
-| Mixture of Experts (MoE) | Scaling LLMs efficiently |
-| AI Security & OWASP Top 10 | Protecting LLM applications in production |
-
----
-
-## 10. Author
-
-<div align="center">
-
-**AI Security | Application Security | DevSecOps | LLM Security**
-
-| Focus Area | |
-|---|---|
-| 🤖 Secure AI Engineering | 🔄 Secure SDLC Integration |
-| 🛡️ OWASP Top 10 for LLM | ☁️ Cloud & Kubernetes Security |
-| 🔍 AI Security Automation | ⚖️ Responsible & Governed AI |
-
----
-
-*If you found this repository useful — ⭐ star it, share it with the AI & Security community, and contribute improvements.*
-
-</div>
+MCP is useful because modern AI systems often need more than a model. They need safe, governed access to tools and information.

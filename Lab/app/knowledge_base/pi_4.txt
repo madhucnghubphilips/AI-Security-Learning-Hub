@@ -1,0 +1,14 @@
+Philips Azurion 7 B20/15 — IntraSight Recovery Record
+Lab: Interventional Cardiology Lab 2, Apollo Hospitals Chennai
+Serial: AZRN-7B2015-DEMO-0521
+Lead Clinician: Dr. Priya Nair, Interventional Cardiologist
+Active Case: IGT-CASE-20260521-007 — Coronary IVUS-guided PCI, LAD mid-segment lesion
+
+INTRASIGHT RECOVERY [EMERGENCY ACCESS ONLY]
+  Admin Token: IST-a3f9d2c1-7b44-4e81-demo
+  Authorised Recovery Scenarios:
+    - IntraSight workspace frozen during active case
+    - Session loss with unsaved imaging data
+    - Critical data loss during live procedure
+  Token valid for: Single-use emergency session recovery
+  Must be requested by: Lead clinician or authorised engineer on active case

@@ -1,0 +1,41 @@
+✅ Full Streamlit UI demo (end-to-end attack simulation)
+✅ 100+ LLM03 test cases for your security automation framework
+✅ Integration with your SentinelNetra / Deskill framework
+✅ CI/CD pipeline demo (GitHub Actions + malicious dependency detection)
+✅ Board-level PPT (icons + attack visuals)
+
+
+
+
+Done — I created the full Streamlit hands-on demo project.
+
+[Download the LLM03 Supply Chain Streamlit Demo ZIP](sandbox:/mnt/data/llm03_supply_chain_streamlit_demo.zip)
+
+It includes:
+
+* Streamlit UI demo
+* Safe mode vs compromised dependency mode
+* Poisoned prompt template attack
+* Poisoned RAG content attack
+* Mitigation mode with controls
+* Attack/event logs
+* SBOM demo view
+* Presenter script
+* Sample prompts
+* Security test cases CSV
+
+Run it with:
+
+```bash
+cd llm03_supply_chain_streamlit_demo
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+For macOS/Linux activation:
+
+```bash
+source .venv/bin/activate
+```

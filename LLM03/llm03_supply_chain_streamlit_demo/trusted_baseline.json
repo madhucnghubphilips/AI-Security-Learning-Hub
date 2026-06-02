@@ -1,0 +1,23 @@
+{
+  "safe-llm-helper": {
+    "version": "1.0.0",
+    "sha256": "trusted-safe-llm-helper-sha256",
+    "source": "Internal Approved Registry",
+    "risk": "Low",
+    "behavior": "Normal response generation"
+  },
+  "rag-policy-pack": {
+    "version": "2.1.0",
+    "sha256": "trusted-rag-policy-pack-sha256",
+    "source": "Internal Approved Registry",
+    "risk": "Low",
+    "behavior": "Retrieves approved enterprise policies"
+  },
+  "prompt-template-core": {
+    "version": "3.4.1",
+    "sha256": "trusted-prompt-template-core-sha256",
+    "source": "Internal Approved Registry",
+    "risk": "Low",
+    "behavior": "Approved system prompt templates"
+  }
+}
