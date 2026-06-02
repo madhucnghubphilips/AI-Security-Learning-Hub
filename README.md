@@ -21,7 +21,11 @@ This repository follows a recommended learning flow for AI, LLMs, prompt enginee
 
 ## 1. What is AI?
 
-Artificial Intelligence is the ability of machines to perform tasks that normally require human intelligence, such as understanding language, recognizing patterns, making decisions, and solving problems.
+Artificial Intelligence is the ability of a computer system to learn from data, recognize patterns, make decisions, generate content, and solve problems in ways that normally require human intelligence.
+
+<p align="center">
+  <img src="Resources/What-is-AI.png" width="100%" alt="What is AI" />
+</p>
 
 ### Traditional Programming vs AI
 
