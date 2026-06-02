@@ -27,16 +27,6 @@ Artificial Intelligence is the ability of a computer system to learn from data, 
   <img src="Resources/What-is-AI.png" width="100%" alt="What is AI" />
 </p>
 
-### Traditional Programming vs AI
-
-| Traditional Programming | AI / Machine Learning |
-|---|---|
-| Humans write exact rules. | Models learn patterns from data. |
-| Logic is explicitly coded. | Logic is learned during training. |
-| Works best for predictable tasks. | Works well for complex, pattern-heavy tasks. |
-| Output changes only when code changes. | Output can improve as data and models improve. |
-
-Traditional programming follows rules written by developers. AI systems learn from examples and use learned patterns to make predictions or generate responses.
 
 ---
 
