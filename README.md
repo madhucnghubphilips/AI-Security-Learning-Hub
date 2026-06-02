@@ -6,26 +6,16 @@ This repository follows a recommended learning flow for AI, LLMs, prompt enginee
 
 ## Recommended Flow
 
-1. [What is AI?](#1-what-is-ai)
-   - Traditional Programming vs AI
-2. [What is Machine Learning?](#2-what-is-machine-learning)
-   - Supervised, Unsupervised, Reinforcement Learning
-3. [How LLM Works](#3-how-llm-works)
-   - Tokens -> Embeddings -> Attention -> Prediction
-4. [Why GPUs Are Important for AI](#4-why-gpus-are-important-for-ai)
-   - Parallel processing and model training
-5. [Prompt Engineering](#5-prompt-engineering)
-   - System Prompt, User Prompt, Context Window
-6. [Jailbreak Attacks](#6-jailbreak-attacks)
-   - Bypassing AI guardrails
-7. [Hallucinations](#7-hallucinations)
-   - Why AI generates incorrect information
-8. [13 Responsible AI Principles](#8-13-responsible-ai-principles)
-   - Safety, Fairness, Transparency, Accountability, Privacy, and related principles
-9. [RAG (Retrieval-Augmented Generation)](#9-rag-retrieval-augmented-generation)
-   - Grounding responses with enterprise data
-10. [MCP (Model Context Protocol)](#10-mcp-model-context-protocol)
-    - Connecting AI to tools, APIs, and data sources
+1. [What is AI? - Traditional Programming vs AI](#1-what-is-ai)
+2. [What is Machine Learning? - Supervised, Unsupervised, Reinforcement Learning](#2-what-is-machine-learning)
+3. [How LLM Works - Tokens -> Embeddings -> Attention -> Prediction](#3-how-llm-works)
+4. [Why GPUs Are Important for AI - Parallel processing and model training](#4-why-gpus-are-important-for-ai)
+5. [Prompt Engineering - System Prompt, User Prompt, Context Window](#5-prompt-engineering)
+6. [Jailbreak Attacks - Bypassing AI guardrails](#6-jailbreak-attacks)
+7. [Hallucinations - Why AI generates incorrect information](#7-hallucinations)
+8. [13 Responsible AI Principles - Safety, Fairness, Transparency, Accountability, Privacy, and related principles](#8-13-responsible-ai-principles)
+9. [RAG (Retrieval-Augmented Generation) - Grounding responses with enterprise data](#9-rag-retrieval-augmented-generation)
+10. [MCP (Model Context Protocol) - Connecting AI to tools, APIs, and data sources](#10-mcp-model-context-protocol)
 
 ---
 
