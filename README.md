@@ -27,32 +27,32 @@ Artificial Intelligence is the ability of a computer system to learn from data, 
   <img src="Resources/What-is-AI.png" width="100%" alt="What is AI" />
 </p>
 
-### Traditional Programming vs AI
-
-| Traditional Programming | AI / Machine Learning |
-|---|---|
-| Humans write exact rules. | Models learn patterns from data. |
-| Logic is explicitly coded. | Logic is learned during training. |
-| Works best for predictable tasks. | Works well for complex, pattern-heavy tasks. |
-| Output changes only when code changes. | Output can improve as data and models improve. |
-
-Traditional programming follows rules written by developers. AI systems learn from examples and use learned patterns to make predictions or generate responses.
 
 ---
 
 ## 2. What is Machine Learning?
 
-Machine Learning is a subset of AI where systems learn patterns from data instead of being programmed with every rule manually.
+**Machine Learning (ML)** is a branch of Artificial Intelligence (AI) that enables computers to **learn from data**, identify patterns, and make predictions or decisions **without being explicitly programmed for every task**.
 
-### Main Learning Types
+### Simple Definition
 
-| Type | Meaning | Example |
-|---|---|---|
-| Supervised Learning | Learns from labeled examples. | Classifying emails as spam or not spam. |
-| Unsupervised Learning | Finds patterns in unlabeled data. | Grouping similar customers or documents. |
-| Reinforcement Learning | Learns through rewards and penalties. | Training agents to make better decisions over time. |
+Instead of telling a computer **exactly what to do**, we provide it with **data**, and it learns the rules by itself.
 
-Machine learning is the foundation for many modern AI systems, including recommendation engines, fraud detection, computer vision, and language models.
+### How Machine Learning Works
+
+```text
+Data -> Learning Algorithm -> Model -> Prediction / Decision
+```
+
+<p align="center">
+  <img src="Resources/What-is-Machine-Learning.png" width="100%" alt="What is Machine Learning" />
+</p>
+
+<p align="center">
+  <img src="Resources/What-is-Machine-Learning-2.png" width="100%" alt="What is Machine Learning 2" />
+</p>
+
+
 
 ---
 
