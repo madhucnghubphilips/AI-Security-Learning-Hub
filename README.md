@@ -418,3 +418,60 @@ Responsible AI focuses on building AI systems that are safe, fair, transparent, 
 | 13 | Sustainability | Consider environmental and operational impact. |
 
 These principles help teams build AI that can be trusted in real-world environments.
+
+
+# Traditional LLM vs RAG Approach
+ 
+<table>
+<tr>
+<td width="48%" valign="top">
+ 
+## Traditional LLM
+ 
+<div style="background-color:#ff6666; padding:16px; border-radius:6px; color:white; font-weight:bold;">
+ 
+Question  
+&nbsp;&nbsp;↓  
+LLM  
+&nbsp;&nbsp;↓  
+Answer  
+ 
+</div>
+ 
+### Problems:
+ 
+❌ Hallucinations  
+❌ Outdated knowledge  
+❌ No internal documents  
+❌ No company-specific answers  
+ 
+</td>
+ 
+<td width="4%"></td>
+ 
+<td width="48%" valign="top">
+ 
+## RAG Approach
+ 
+<div style="background-color:#28a745; padding:16px; border-radius:6px; color:white; font-weight:bold;">
+ 
+Question  
+&nbsp;&nbsp;↓  
+Retrieve documents  
+&nbsp;&nbsp;↓  
+Add context to LLM  
+&nbsp;&nbsp;↓  
+Grounded answer  
+ 
+</div>
+ 
+### Benefits:
+ 
+✅ More accurate  
+✅ Less hallucination  
+✅ Latest information  
+✅ Private enterprise data  
+ 
+</td>
+</tr>
+</table>
