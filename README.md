@@ -289,35 +289,38 @@ X The information may be completely fabricated.
 
 Instead of relying only on what the AI learned during training, RAG allows the AI to retrieve fresh, domain-specific, or private information before answering.
 # Traditional LLM vs RAG Approach
- 
-<table style="border-spacing:0; width:100%;">
+
+<table width="100%">
 <tr>
-<td width="48%" valign="top" style="padding-right:16px;">
- 
+<td width="48%" valign="top">
+
 ## Traditional LLM
- 
-<pre style="background-color:#FF6B6B; color:#FFFFFF; padding:12px; border-radius:6px;">
+
+<table width="100%"><tr><td bgcolor="#FF6B6B" align="left">
+<font color="#FFFFFF"><pre>
 Question
    ↓
 LLM
    ↓
 Answer
-</pre>
- 
+</pre></font>
+</td></tr></table>
+
 **Problems:**
- 
+
 ❌ Hallucinations  
 ❌ Outdated knowledge  
 ❌ No internal documents  
 ❌ No company-specific answers  
- 
+
 </td>
-<td width="4%" style="min-width:24px;"></td>
-<td width="48%" valign="top" style="padding-left:16px;">
- 
+<td width="4%"></td>
+<td width="48%" valign="top">
+
 ## RAG Approach
- 
-<pre style="background-color:#28A745; color:#FFFFFF; padding:12px; border-radius:6px;">
+
+<table width="100%"><tr><td bgcolor="#28A745" align="left">
+<font color="#FFFFFF"><pre>
 Question
    ↓
 Retrieve documents
@@ -325,15 +328,16 @@ Retrieve documents
 Add context to LLM
    ↓
 Grounded answer
-</pre>
- 
+</pre></font>
+</td></tr></table>
+
 **Benefits:**
- 
+
 ✅ More accurate  
 ✅ Less hallucination  
 ✅ Latest information  
 ✅ Private enterprise data  
- 
+
 </td>
 </tr>
 </table>  
