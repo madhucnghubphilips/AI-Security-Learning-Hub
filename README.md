@@ -289,36 +289,39 @@ X The information may be completely fabricated.
 
 Instead of relying only on what the AI learned during training, RAG allows the AI to retrieve fresh, domain-specific, or private information before answering.
 
-<table width="100%">
+<table>
   <tr>
-    <td width="49%" valign="top">
+    <td width="50%" valign="top">
       <h3>Traditional LLM</h3>
       <pre><code>Question
-   ↓
+  ↓
 LLM
-   ↓
-Answer</code></pre>
-      <p>Problems:</p>
-      <pre><code>❌ Hallucinations
+  ↓
+Answer
+
+
+
+Problems:
+❌ Hallucinations
 ❌ Outdated knowledge
-❌ No access to internal documents
-❌ Cannot answer company-specific questions</code></pre>
+❌ No internal documents
+❌ No company-specific answers</code></pre>
     </td>
-    <td width="2%"></td>
-    <td width="49%" valign="top">
+    <td width="50%" valign="top">
       <h3>RAG Approach</h3>
       <pre><code>Question
-   ↓
-Retrieve Relevant Documents
-   ↓
-Provide Context to LLM
-   ↓
-Generate Grounded Answer</code></pre>
-      <p>Benefits:</p>
-      <pre><code>✅ More accurate
+  ↓
+Retrieve documents
+  ↓
+Add context to LLM
+  ↓
+Grounded answer
+
+Benefits:
+✅ More accurate
 ✅ Less hallucination
-✅ Uses latest information
-✅ Works with private enterprise data</code></pre>
+✅ Latest information
+✅ Private enterprise data</code></pre>
     </td>
   </tr>
 </table>
