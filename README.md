@@ -15,7 +15,7 @@ This repository follows a recommended learning flow for AI, deterministic and pr
 7. [RAG (Retrieval-Augmented Generation) - Grounding responses with enterprise data](#7-rag-retrieval-augmented-generation)
 8. [MCP (Model Context Protocol) - Connecting AI to tools, APIs, and data sources](#8-mcp-model-context-protocol)
 9. [How LLM Works - Tokens -> Embeddings -> Attention -> Prediction](#9-how-llm-works)
-10. [13 Responsible AI Principles - Safety, Fairness, Transparency, Accountability, Privacy, and related principles](#10-13-responsible-ai-principles)
+10. [Responsible AI Principles - Safety, Fairness, Transparency, Accountability, Privacy, and related principles](#10-responsible-ai-principles)
 
 ---
 
@@ -357,18 +357,74 @@ Grounded answer
 
 ## 8. MCP (Model Context Protocol)
 
-MCP standardizes how AI applications connect models to tools, APIs, and data sources. It gives AI systems a structured way to access external capabilities and context.
+**MCP (Model Context Protocol)** is an open standard that allows AI models and AI agents to securely connect with external tools, applications, databases, APIs, and enterprise systems.
 
-### Connecting AI to Tools, APIs, and Data Sources
+Think of MCP as:
 
-| MCP Area | Purpose |
-|---|---|
-| Tools | Let AI systems perform controlled actions. |
-| APIs | Connect models to external services. |
-| Data sources | Provide access to files, databases, and knowledge systems. |
-| Security controls | Define what the model can access and under what conditions. |
+```text
+"USB-C for AI Applications"
+```
 
-MCP is useful because modern AI systems often need more than a model. They need safe, governed access to tools and information.
+Just as USB-C allows different devices to connect using a common standard, MCP allows AI models to connect to different tools and data sources using a common protocol.
+
+
+<table width="100%">
+<tr>
+<td width="48%" valign="top">
+
+## Without MCP
+
+<table width="100%"><tr><td bgcolor="#FF6B6B" align="left">
+<font color="#FFFFFF"><pre>
+AI Pentest Agent
+
+   ├── Custom Integration to Nmap
+   ├── Custom Integration to Burp
+   ├── Custom Integration to Nessus
+   ├── Custom Integration to Metasploit
+   └── Custom Integration to AWS/Azure
+</pre></font>
+</td></tr></table>
+
+**Problem:**
+
+- Every tool requires separate code.
+- Different authentication methods.
+- Different APIs and data formats.
+- High maintenance effort.
+- Difficult to scale new tools.
+
+</td>
+<td width="4%"></td>
+<td width="48%" valign="top">
+
+## With MCP
+
+<table width="100%"><tr><td bgcolor="#28A745" align="left">
+<font color="#FFFFFF"><pre>
+AI Pentest Agent
+       │
+       ▼
+      MCP
+       │
+  ┌────┬────┬────┬────┐
+  ▼    ▼    ▼    ▼    ▼
+Nmap Burp Nessus Meta Azure
+</pre></font>
+</td></tr></table>
+
+**Benefits:**
+
+- One standard interface for all security tools.
+- Easy onboarding of new pentest tools.
+- Reduced development effort.
+- Faster automation and orchestration.
+- Consistent communication between AI and tools.
+
+</td>
+</tr>
+</table>
+
 
 ---
 
@@ -395,7 +451,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 
 ---
 
-## 10. 13 Responsible AI Principles
+## 10. Responsible AI Principles
 
 Responsible AI focuses on building AI systems that are safe, fair, transparent, accountable, and aligned with human values.
 
