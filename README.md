@@ -288,49 +288,55 @@ X The information may be completely fabricated.
 > **RAG = Search First + Generate Later**
 
 Instead of relying only on what the AI learned during training, RAG allows the AI to retrieve fresh, domain-specific, or private information before answering.
-
-<table>
-  <tr>
-    <td width="45%" valign="top">
-      <h3>Traditional LLM</h3>
-      <pre><code>Question
-  ↓
-LLM
-  ↓
-Answer
-
-
-
-Problems:
-❌ Hallucinations
-❌ Outdated knowledge
-❌ No internal documents
-❌ No company-specific answers</code></pre>
-    </td>
-    <td width="10%"></td>
-    <td width="45%" valign="top">
-      <h3>RAG Approach</h3>
-      <pre><code>Question
-  ↓
-Retrieve documents
-  ↓
-Add context to LLM
-  ↓
-Grounded answer
-
-Benefits:
-✅ More accurate
-✅ Less hallucination
-✅ Latest information
-✅ Private enterprise data</code></pre>
-    </td>
-  </tr>
-</table>
-
-<table>
-<tr>
-<td width="50%" valign="top">
+# Traditional LLM vs RAG Approach
  
+<table style="border-spacing:0; width:100%;">
+<tr>
+<td width="48%" valign="top" style="padding-right:16px;">
+ 
+## Traditional LLM
+ 
+<pre style="background-color:#FF6B6B; color:#FFFFFF; padding:12px; border-radius:6px;">
+Question
+   ↓
+LLM
+   ↓
+Answer
+</pre>
+ 
+**Problems:**
+ 
+❌ Hallucinations  
+❌ Outdated knowledge  
+❌ No internal documents  
+❌ No company-specific answers  
+ 
+</td>
+<td width="4%" style="min-width:24px;"></td>
+<td width="48%" valign="top" style="padding-left:16px;">
+ 
+## RAG Approach
+ 
+<pre style="background-color:#28A745; color:#FFFFFF; padding:12px; border-radius:6px;">
+Question
+   ↓
+Retrieve documents
+   ↓
+Add context to LLM
+   ↓
+Grounded answer
+</pre>
+ 
+**Benefits:**
+ 
+✅ More accurate  
+✅ Less hallucination  
+✅ Latest information  
+✅ Private enterprise data  
+ 
+</td>
+</tr>
+</table>  
 
  
 ---
