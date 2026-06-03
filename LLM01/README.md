@@ -19,8 +19,16 @@ This package contains a full end-to-end Streamlit demo for OWASP LLM01 Prompt In
 ## Run
 
 ```bash
-pip install -r requirements.txt
-streamlit run app.py
+./run_demo.sh
+```
+
+Or manually:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install --upgrade pip
+.venv/bin/python -m pip install -r requirements.txt
+.venv/bin/python -m streamlit run app.py
 ```
 
 ## Notes

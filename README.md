@@ -52,8 +52,6 @@ Data -> Learning Algorithm -> Model -> Prediction / Decision
   <img src="Resources/What-is-Machine-Learning-2.png" width="100%" alt="What is Machine Learning 2" />
 </p>
 
-
-
 ---
 
 ## 3. How LLM Works
@@ -81,7 +79,23 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 
 ## 4. Why GPUs Are Important for AI
 
-GPUs are important for AI because they perform many mathematical operations in parallel. AI models rely on large-scale matrix and vector calculations, especially during model training and inference.
+CPUs are excellent general-purpose processors, but GPUs are specifically designed to perform the enormous number of parallel mathematical operations required by modern AI.
+
+### Simple Analogy
+
+| Component | Analogy |
+|---|---|
+| CPU | 8 highly skilled doctors working on one patient at a time. |
+| GPU | 10,000 medical assistants each handling a small task simultaneously. |
+| AI Model | A hospital processing millions of medical records and images. |
+
+<p align="center">
+  <img src="Resources/Why-GPU-is-most-important-for-AI(1).png" width="100%" alt="Why GPU is most important for AI 1" />
+</p>
+
+<p align="center">
+  <img src="Resources/Why-GPU-is-most-important-for-AI(2).png" width="100%" alt="Why GPU is most important for AI 2" />
+</p>
 
 ### Parallel Processing and Model Training
 

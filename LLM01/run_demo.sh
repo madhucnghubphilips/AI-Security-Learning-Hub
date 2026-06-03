@@ -19,8 +19,29 @@ echo "[*] Using: $PYTHON"
 $PYTHON --version
 echo ""
 
+VENV_DIR=".venv"
+if [ ! -d "$VENV_DIR" ]; then
+    echo "[*] Creating virtual environment..."
+    $PYTHON -m venv "$VENV_DIR"
+    if [ $? -ne 0 ]; then
+        echo "ERROR: Failed to create virtual environment."
+        echo "On Ubuntu/Debian, install venv support with:"
+        echo "  sudo apt install python3-venv"
+        exit 1
+    fi
+fi
+
+VENV_PYTHON="$VENV_DIR/bin/python"
+echo "[*] Using virtual environment: $VENV_DIR"
+
 echo "[*] Installing requirements..."
-$PYTHON -m pip install -r requirements.txt
+$VENV_PYTHON -m pip install --upgrade pip
+if [ $? -ne 0 ]; then
+    echo "ERROR: Failed to upgrade pip in the virtual environment."
+    exit 1
+fi
+
+$VENV_PYTHON -m pip install -r requirements.txt
 if [ $? -ne 0 ]; then
     echo "ERROR: Failed to install requirements."
     exit 1
@@ -28,4 +49,4 @@ fi
 
 echo ""
 echo "[*] Starting Streamlit app..."
-$PYTHON -m streamlit run app.py
+$VENV_PYTHON -m streamlit run app.py

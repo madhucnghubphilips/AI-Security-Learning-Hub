@@ -10,15 +10,99 @@ st.set_page_config(page_title="Supply Chain Security Lab", page_icon="🧬", lay
 
 CSS = """
 <style>
+    :root {
+        --ink: #111827;
+        --muted: #5b6475;
+        --border: #e5e7eb;
+        --hero-grad: linear-gradient(135deg, #fff 0%, #f8fbff 56%, #fff3f5 100%);
+        --shadow: rgba(17, 24, 39, .18);
+    }
     .main {background: linear-gradient(180deg, #f7fbff 0%, #ffffff 70%);} 
-    .hero {padding: 24px; border-radius: 22px; background: linear-gradient(135deg,#09203f,#537895); color: white; margin-bottom: 20px;}
+    .hero {
+        position: relative;
+        padding: 32px 38px;
+        border-radius: 28px;
+        background: var(--hero-grad);
+        border: 1px solid var(--border);
+        box-shadow: 0 18px 45px var(--shadow);
+        color: var(--ink);
+        margin-bottom: 28px;
+    }
+    .hero h1 {
+        color: var(--ink);
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 1.16;
+        letter-spacing: -.045em;
+        margin: 0;
+    }
+    .hero p {
+        color: var(--muted);
+        font-size: 18px;
+        margin-top: 14px;
+        max-width: 820px;
+    }
+    .hero .hero-quote {
+        background: #111827;
+        border-bottom: 2px solid rgba(239,68,68,0.65);
+        border-left: 4px solid #FACC15;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(34,197,94,0.3);
+        color: #FFFFFF;
+        font-size: 26px;
+        font-style: italic;
+        font-weight: 800;
+        margin-top: 14px;
+        opacity: 0.97;
+        padding: 12px 16px;
+    }
     .card {border: 1px solid #e6edf5; border-radius: 18px; padding: 18px; background: #ffffff; box-shadow: 0 4px 18px rgba(20,40,80,.06); margin-bottom: 16px;}
     .good {border-left: 8px solid #17a673;}
     .bad {border-left: 8px solid #e5484d;}
     .warn {border-left: 8px solid #f59e0b;}
-    .pill {display:inline-block; padding: 6px 10px; border-radius: 999px; background:#eef6ff; margin:3px; font-size: 13px;}
+    .pill {display:inline-block; padding: 7px 13px; border-radius: 999px; background:rgba(190,18,60,0.12); color:#be123c; border:1px solid rgba(190,18,60,0.28); font-weight:800; margin-bottom:15px; font-size: 13px;}
+    .sidebar-stat-grid {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin: 12px 0 18px;
+    }
+    .sidebar-stat-card {
+        background: linear-gradient(135deg, #ffffff 0%, #f8fbff 100%);
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        box-shadow: 0 8px 22px rgba(17,24,39,.10);
+        min-height: 82px;
+        padding: 14px 12px;
+    }
+    .sidebar-stat-card.completed {
+        border-left: 5px solid #2563eb;
+    }
+    .sidebar-stat-card.score {
+        border-left: 5px solid #ef4444;
+    }
+    .sidebar-stat-label {
+        color: #5b6475;
+        display: block;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: .05em;
+        margin-bottom: 8px;
+        text-transform: uppercase;
+    }
+    .sidebar-stat-value {
+        color: #111827;
+        display: block;
+        font-size: 24px;
+        font-weight: 900;
+        line-height: 1;
+    }
     .small {font-size: 13px; color:#4b5563;}
     code {white-space: pre-wrap !important;}
+    @media (max-width: 900px) {
+        .hero { padding: 24px 24px 22px 24px; }
+        .hero h1 { font-size: 32px; }
+    }
 </style>
 """
 st.markdown(CSS, unsafe_allow_html=True)
@@ -201,18 +285,34 @@ if "answered" not in st.session_state:
 
 st.markdown("""
 <div class='hero'>
-<h1>🧬 Kontra‑Style Supply Chain Security Lab</h1>
-<p>Original interactive Streamlit training inspired by the public Kontra learning style: trace the vulnerability, exploit the weak assumption, then apply the secure fix.</p>
+<div class='pill'>Supply Chain Vulnerabilities</div>
+<h1>🧬 LLM03 — Supply Chain Security Lab</h1>
+<p>LLM03 occurs when an AI system trusts a <strong style="color:#ef4444;">compromised or untrusted component</strong> within the AI supply chain.</p>
 <p><b>Topic:</b> OWASP LLM03 / Software Supply Chain Vulnerabilities • <b>Mode:</b> 14 guided steps • <b>Audience:</b> Developers, AppSec, DevSecOps</p>
+<p class='hero-quote'>One poisoned dependency can compromise millions.</p>
 </div>
 """, unsafe_allow_html=True)
 
 with st.sidebar:
     st.header("📍 Learning Path")
-    progress = (len(st.session_state.answered) / len(STEPS))
+    completed = len(st.session_state.answered)
+    progress = (completed / len(STEPS))
     st.progress(progress)
-    st.metric("Completed", f"{len(st.session_state.answered)}/{len(STEPS)}")
-    st.metric("Score", st.session_state.score)
+    st.markdown(
+        f"""
+        <div class="sidebar-stat-grid">
+            <div class="sidebar-stat-card completed">
+                <span class="sidebar-stat-label">Completed</span>
+                <span class="sidebar-stat-value">{completed}/{len(STEPS)}</span>
+            </div>
+            <div class="sidebar-stat-card score">
+                <span class="sidebar-stat-label">Score</span>
+                <span class="sidebar-stat-value">{st.session_state.score}</span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
     st.divider()
     for i, s in enumerate(STEPS):
         label = f"{'✅' if i in st.session_state.answered else '▫️'} {i+1}. {s.title.split('. ',1)[-1]}"
