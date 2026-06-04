@@ -253,7 +253,64 @@ Grounded answer
 
 </td>
 </tr>
-</table>  
+</table>
+
+---
+
+## Docker Quick Start
+
+This repository can run the OWASP LLM labs, the RAG chatbot, and the required Ollama models through Docker Compose.
+
+### Prerequisites
+
+- Docker Desktop or Docker Engine with Docker Compose.
+- Enough disk space for the Ollama models. The first run downloads model files and can take several minutes.
+
+### Start Everything
+
+```bash
+docker compose up --build
+```
+
+The Compose stack starts:
+
+- `labs`: one container running all Streamlit lab apps.
+- `chatbot`: the FastAPI RAG chatbot.
+- `ollama`: the local model server.
+- `ollama-init`: a one-time setup job that prepares `dolphin-ctf`, `nomic-embed-text`, and `llama3.1`.
+
+### URLs
+
+| App | URL |
+|---|---|
+| LLM01 - Prompt Injection | http://localhost:8501 |
+| LLM02 - Sensitive Information Disclosure | http://localhost:8502 |
+| LLM03 - Supply Chain, Kontra Style | http://localhost:8503 |
+| LLM04 - Data and Model Poisoning | http://localhost:8504 |
+| LLM05 - Improper Output Handling | http://localhost:8505 |
+| LLM06 - Excessive Agency | http://localhost:8506 |
+| LLM07 - System Prompt Leakage | http://localhost:8507 |
+| LLM08 - Vector and Embedding Weaknesses | http://localhost:8508 |
+| LLM09 - Misinformation | http://localhost:8509 |
+| LLM10 - Unbounded Consumption | http://localhost:8510 |
+| RAG Chatbot | http://localhost:8000 |
+| Ollama API | http://localhost:11434 |
+
+### Stop Everything
+
+```bash
+docker compose down
+```
+
+Model files are stored in the `ollama-data` Docker volume, so they are reused on the next run. To remove downloaded models too:
+
+```bash
+docker compose down --volumes
+```
+
+### Local Ollama Configuration
+
+The chatbot and LLM08 read `OLLAMA_BASE_URL` from the environment. Docker Compose sets it to `http://ollama:11434`. Local non-Docker runs still default to `http://localhost:11434`.
 
  
 ---

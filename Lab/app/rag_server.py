@@ -23,7 +23,7 @@ _ASSETS_DIR = Path(__file__).parent / "assets"
 if _ASSETS_DIR.exists():
     app.mount("/assets", StaticFiles(directory=str(_ASSETS_DIR)), name="assets")
 
-OLLAMA_BASE_URL = "http://localhost:11434"
+OLLAMA_BASE_URL = os.getenv("OLLAMA_BASE_URL", "http://localhost:11434")
 CTF_MODEL = os.getenv("CTF_MODEL", "dolphin-ctf:latest")
 
 # ── Challenge rules ────────────────────────────────────────────────────────
