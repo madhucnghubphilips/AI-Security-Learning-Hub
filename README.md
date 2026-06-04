@@ -433,6 +433,10 @@ Responsible AI focuses on building AI systems that are safe, fair, transparent, 
 
 These principles help teams build AI that can be trusted in real-world environments.
 
+<p align="center">
+  <img src="Resources/Responsible-ai.png" width="100%" alt="Responsible AI" />
+</p>
+
 
 # Traditional LLM vs RAG Approach
  
