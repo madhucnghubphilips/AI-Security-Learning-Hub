@@ -9,6 +9,11 @@ OWASP LLM03 / Software Supply Chain Vulnerabilities for AI and LLM applications.
 - 14-step guided interactive learning path
 - Vulnerable setup vs secure fix view
 - Quiz and scoring
+- Safe vs vulnerable package simulation
+- Manifest drift and package fingerprint inspection
+- Security gate toggles with blocked/not-blocked findings
+- Scenario event timeline with OWASP LLM03 control mapping
+- AI-assisted attacker view vs defender view
 - Mini scanner for supply-chain red flags
 - Secure release checklist
 - Downloadable JSON lab report
