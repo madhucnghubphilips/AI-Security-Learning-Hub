@@ -376,7 +376,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 </p>
 
 <p align="center">
-  <img src="Resources/border.png" width="100%" alt="Section divider" />
+  <img src="Resources/rob1.png" width="20%" alt="Section divider 1" />
 </p>
 
 <p align="center">
@@ -384,7 +384,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 </p>
 
 <p align="center">
-  <img src="Resources/border.png" width="100%" alt="Section divider" />
+  <img src="Resources/rob2.png" width="20%" alt="Section divider 2" />
 </p>
 
 <p align="center">
@@ -392,7 +392,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 </p>
 
 <p align="center">
-  <img src="Resources/border.png" width="100%" alt="Section divider" />
+  <img src="Resources/rob3.png" width="20%" alt="Section divider 3" />
 </p>
 
 <p align="center">
@@ -400,7 +400,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 </p>
 
 <p align="center">
-  <img src="Resources/border.png" width="100%" alt="Section divider" />
+  <img src="Resources/rob4.png" width="20%" alt="Section divider 4" />
 </p>
 
 <p align="center">
