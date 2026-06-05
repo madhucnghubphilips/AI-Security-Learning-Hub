@@ -135,6 +135,57 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 
 ---
 
+# 📚 Learning Flow
+
+| Module | Topic | Outcome |
+|----------|----------|----------|
+| 01 | 🤖 What is AI? | Traditional Programming vs AI |
+| 02 | 🎯 Deterministic vs Probabilistic AI | Rules vs Predictions |
+| 03 | 🧠 Machine Learning Fundamentals | Supervised, Unsupervised & RL |
+| 04 | ⚡ Why GPUs Matter | AI Training & Inference |
+| 05 | 🔓 Jailbreak Attacks | Bypassing AI Guardrails |
+| 06 | 🎭 AI Hallucinations | Incorrect AI Responses |
+| 07 | 📖 RAG Fundamentals | Enterprise Knowledge Integration |
+| 08 | 🔌 MCP Fundamentals | AI + Tools & APIs |
+| 09 | ⚙️ How LLMs Work | Tokens → Embeddings → Attention → Prediction |
+| 10 | 🛡️ Responsible AI | Safety, Fairness & Trust |
+
+---
+
+## Learning Flow
+
+| No | Topic | Key Focus |
+|----|-------|-----------|
+| 1 | **What is AI?** | Traditional Programming vs AI |
+| 2 | **Deterministic vs Probabilistic AI** | Rules vs Predictions |
+| 3 | **Machine Learning Fundamentals** | Supervised, Unsupervised & RL |
+| 4 | **Why GPUs Matter?** | AI Training & Inference |
+| 5 | **Jailbreak Attacks** | Bypassing AI Guardrails |
+| 6 | **AI Hallucinations** | Incorrect AI Responses |
+| 7 | **RAG Fundamentals** | Enterprise Knowledge Integration |
+| 8 | **MCP Fundamentals** | AI + Tools & APIs |
+| 9 | **How LLMs Work** | Tokens → Embeddings → Attention → Prediction |
+| 10 | **Responsible AI** | Safety, Fairness & Trust |
+
+---
+
+| #  | Topic                                 | Key Focus                                    |
+| -- | ------------------------------------- | -------------------------------------------- |
+| 1  | **What is AI?**                       | Traditional Programming vs AI                |
+| 2  | **Deterministic vs Probabilistic AI** | Rules vs Predictions                         |
+| 3  | **Machine Learning Fundamentals**     | Supervised, Unsupervised & RL                |
+| 4  | **Why GPUs Matter?**                  | AI Training & Inference                      |
+| 5  | **Jailbreak Attacks**                 | Bypassing AI Guardrails                      |
+| 6  | **AI Hallucinations**                 | Incorrect AI Responses                       |
+| 7  | **RAG Fundamentals**                  | Enterprise Knowledge Integration             |
+| 8  | **MCP Fundamentals**                  | AI + Tools & APIs                            |
+| 9  | **How LLMs Work**                     | Tokens → Embeddings → Attention → Prediction |
+| 10 | **Responsible AI**                    | Safety, Fairness & Trust                     |
+
+
+---
+
+
 <!-- _class: image -->
 
 ## What Is AI?
