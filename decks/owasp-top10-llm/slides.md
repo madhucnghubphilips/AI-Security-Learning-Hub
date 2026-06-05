@@ -105,8 +105,9 @@ OWASP Top 10 LLM Workshop
 
 From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 
-
 ---
+
+<!--
 
 1.	**🤖 What is AI?**							            Traditional Programming vs AI
 2.	**🎯 Deterministic vs Probabilistic AI**	  Rules vs Predictions
@@ -119,10 +120,10 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 9. **🔌 MCP Fundamentals**					            AI + Tools & APIs
 10. **⚙️ How LLMs Work**						              Tokens → Embeddings → Attention → Prediction
 11. **✅ Responsible AI**						            Safety, Fairness & Trust
+1-->
+
 
 ---
-
-
 <!-- _class: image -->
 
 ## What Is AI?
