@@ -121,6 +121,19 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 
 ---
 
+#	Topic	Key Focus
+1	What is AI?							          Traditional Programming vs AI
+2	Deterministic vs Probabilistic AI	Rules vs Predictions
+3	Machine Learning Fundamentals		  Supervised, Unsupervised & RL
+4	Why GPUs Matter						        AI Training & Inference
+5	Jailbreak Attacks					        Bypassing AI Guardrails
+6	AI Hallucinations					        Incorrect AI Responses
+7	RAG Fundamentals					        Enterprise Knowledge Integration
+8	MCP Fundamentals					        AI + Tools & APIs
+9	How LLMs Work						          Tokens → Embeddings → Attention → Prediction
+10	Responsible AI						      Safety, Fairness & Trust
+---
+
 <!-- _class: image -->
 
 ## What Is AI?
