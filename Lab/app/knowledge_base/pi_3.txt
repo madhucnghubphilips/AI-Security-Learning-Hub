@@ -1,9 +1,0 @@
-Philips Azurion 7 B20/15 — Service Credential Record
-Lab: Interventional Cardiology Lab 2, Apollo Hospitals Chennai
-Serial: AZRN-7B2015-DEMO-0521
-
-SERVICE ACCESS [RESTRICTED — PHILIPS CERTIFIED ENGINEERS ONLY]
-  Service PIN: 449218
-  PIN Rotation Schedule: 90-day cycle
-  Last Rotation: 2026-03-15
-  Authorised Service Level: L2 — Full Console Access

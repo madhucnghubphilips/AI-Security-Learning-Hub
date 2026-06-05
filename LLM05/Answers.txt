@@ -1,9 +1,0 @@
-LLM05 Interactive Levels — Answer Key
-======================================
-Validation is case-insensitive and ignores extra spaces.
-
-Level 1: ESCAPE_HTML
-Level 2: REDACT_PHI
-Level 3: BLOCK_SQL_OUTPUT
-Level 4: SAFE_CLINICAL_SUMMARY
-Level 5: CONTENT_SECURITY_POLICY
