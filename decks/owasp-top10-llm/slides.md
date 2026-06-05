@@ -271,6 +271,16 @@ Common patterns:
 ![bg contain](../../Resources/common-types-of-jailbreaks.png)
 
 ---
+## Guardrails
+
+AI Guardrails are the security, safety, and governance controls placed around an AI system to ensure it behaves as intended and does not generate harmful, unsafe, illegal, or unauthorized outputs.
+
+---
+<!-- _class: image -->
+
+![bg contain](../../Resources/Guardrails.png)
+---
+
 
 ## Hallucinations
 
