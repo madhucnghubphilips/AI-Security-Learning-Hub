@@ -12,11 +12,12 @@ This repository follows a recommended learning flow for AI, deterministic and pr
 3. [What is Machine Learning? - Supervised, Unsupervised, Reinforcement Learning](#3-what-is-machine-learning)
 4. [Why GPUs Are Important for AI - Parallel processing and model training](#4-why-gpus-are-important-for-ai)
 5. [Jailbreak Attacks - Bypassing AI guardrails](#5-jailbreak-attacks)
-6. [Hallucinations - Why AI generates incorrect information](#6-hallucinations)
-7. [RAG (Retrieval-Augmented Generation) - Grounding responses with enterprise data](#7-rag-retrieval-augmented-generation)
-8. [MCP (Model Context Protocol) - Connecting AI to tools, APIs, and data sources](#8-mcp-model-context-protocol)
-9. [How LLM Works - Tokens -> Embeddings -> Attention -> Prediction](#9-how-llm-works)
-10. [Responsible AI Principles - Safety, Fairness, Transparency, Accountability, Privacy, and related principles](#10-responsible-ai-principles)
+6. [Guardrails - security, safety, & governance](#6-Guardrails)
+7. [Hallucinations - Why AI generates incorrect information](#6-hallucinations)
+8. [RAG (Retrieval-Augmented Generation) - Grounding responses with enterprise data](#7-rag-retrieval-augmented-generation)
+9. [MCP (Model Context Protocol) - Connecting AI to tools, APIs, and data sources](#8-mcp-model-context-protocol)
+10. [How LLM Works - Tokens -> Embeddings -> Attention -> Prediction](#9-how-llm-works)
+11. [Responsible AI Principles - Safety, Fairness, Transparency, Accountability, Privacy, and related principles](#10-responsible-ai-principles)
 
 ---
 
@@ -145,7 +146,11 @@ This is similar to an AI jailbreak.
 
 ---
 
-## 6. Hallucinations
+## 6. Guardrails
+
+AI Guardrails are the security, safety, and governance controls placed around an AI system to ensure it behaves as intended and does not generate harmful, unsafe, illegal, or unauthorized outputs.
+
+## 7. Hallucinations
 
 Hallucination occurs when an AI model generates information that sounds convincing and confident but is actually incorrect, fabricated, misleading, or unsupported by facts.
 
@@ -188,7 +193,7 @@ X The information may be completely fabricated.
 
 ---
 
-## 7. RAG (Retrieval-Augmented Generation)
+## 8. RAG (Retrieval-Augmented Generation)
 
 ### What is RAG in the AI World?
 
@@ -269,7 +274,7 @@ Grounded answer
 
 ---
 
-## 8. MCP (Model Context Protocol)
+## 9. MCP (Model Context Protocol)
 
 **MCP (Model Context Protocol)** is an open standard that allows AI models and AI agents to securely connect with external tools, applications, databases, APIs, and enterprise systems.
 
@@ -353,7 +358,7 @@ By mapping the top 10 MCP-related vulnerabilities and offering concrete recommen
 
 ---
 
-## 9. How LLM Works
+## 10. How LLM Works
 
 Large Language Models process and generate text by converting input into tokens, transforming those tokens into embeddings, using attention to understand context, and predicting the next likely token.
 
@@ -410,7 +415,7 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 
 ---
 
-## 10. Responsible AI Principles
+## 11. Responsible AI Principles
 
 Responsible AI focuses on building AI systems that are safe, fair, transparent, accountable, and aligned with human values.
 
