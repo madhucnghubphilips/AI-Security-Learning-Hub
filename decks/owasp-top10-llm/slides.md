@@ -121,7 +121,8 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 10. **⚙️ How LLMs Work**						              Tokens → Embeddings → Attention → Prediction
 11. **✅ Responsible AI**						            Safety, Fairness & Trust
 1-->
-
+<!-- _class: image -->
+![bg contain](../../Resources/Index.png)
 
 ---
 <!-- _class: image -->
