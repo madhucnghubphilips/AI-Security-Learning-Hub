@@ -1,0 +1,17 @@
+{
+  "name": "owasp-top10-llm-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static GitHub Pages slide deck for AI security learning notes.",
+  "scripts": {
+    "build": "node scripts/build-site.js",
+    "build:deck": "node scripts/build-deck.js",
+    "site": "node scripts/build-site.js",
+    "preview": "npx http-server site -c-1 -a 127.0.0.1"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.3",
+    "http-server": "^14.1.1"
+  }
+}
+

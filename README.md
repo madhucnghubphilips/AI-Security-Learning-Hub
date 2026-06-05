@@ -356,6 +356,9 @@ By mapping the top 10 MCP-related vulnerabilities and offering concrete recommen
 
 Large Language Models process and generate text by converting input into tokens, transforming those tokens into embeddings, using attention to understand context, and predicting the next likely token.
 
+<p align="center">
+  <img src="Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="How LLM Works" />
+</p>
 
 ### Tokens -> Embeddings -> Attention -> Prediction
 
@@ -369,43 +372,6 @@ Input text -> Tokens -> Embeddings -> Attention -> Next-token prediction -> Resp
 | Embeddings | Tokens are converted into numerical vectors that capture meaning. |
 | Attention | The model decides which parts of the input are most relevant. |
 | Prediction | The model predicts the next token and repeats until the response is complete. |
-
-
-<p align="center">
-  <img src="Resources/How%20LLM%20Works%20-%201.png" width="100%" alt="How LLM Works" />
-</p>
-
-<p align="center">
-  <img src="Resources/rob1.png" width="20%" alt="Section divider 1" />
-</p>
-
-<p align="center">
-  <img src="Resources/How-Tokanization-and-Embeddings-work.png" width="100%" alt="How Tokenization and Embedding Works" />
-</p>
-
-<p align="center">
-  <img src="Resources/rob2.png" width="20%" alt="Section divider 2" />
-</p>
-
-<p align="center">
-  <img src="Resources/How-Transformer-Neural-Network.png" width="100%" alt="Transformers and Neural Networks" />
-</p>
-
-<p align="center">
-  <img src="Resources/rob3.png" width="20%" alt="Section divider 3" />
-</p>
-
-<p align="center">
-  <img src="Resources/How-Attention-Mechanism-work.png" width="100%" alt="Attention Mechanism" />
-</p>
-
-<p align="center">
-  <img src="Resources/rob4.png" width="20%" alt="Section divider 4" />
-</p>
-
-<p align="center">
-  <img src="Resources/How-Predicting-Output-work.png" width="100%" alt="Predicting Output" />
-</p>
 
 ---
 
@@ -432,10 +398,6 @@ Responsible AI focuses on building AI systems that are safe, fair, transparent, 
 | 13 | Sustainability | Consider environmental and operational impact. |
 
 These principles help teams build AI that can be trusted in real-world environments.
-
-<p align="center">
-  <img src="Resources/Responsible-ai.png" width="100%" alt="Responsible AI" />
-</p>
 
 
 # Traditional LLM vs RAG Approach
