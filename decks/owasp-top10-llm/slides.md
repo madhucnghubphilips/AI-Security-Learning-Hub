@@ -95,7 +95,6 @@ section.image h2 {
 }
 </style>
 
-<!-- _class: lead -->
 
 
 # AI Security Learning Hub
@@ -125,13 +124,6 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 ![bg contain](../../Resources/Index.png)
 
 ---
-<!-- _class: image -->
-
-## What Is AI?
-
-![bg contain](../../Resources/What-is-AI.png)
-
----
 
 ## What Is AI?
 
@@ -142,6 +134,13 @@ The key difference from traditional software:
 - Traditional programs follow explicit rules.
 - AI systems infer patterns from data.
 - LLMs generate likely language based on context.
+
+---
+<!-- _class: image -->
+
+## What Is AI?
+
+![bg contain](../../Resources/What-is-AI.png)
 
 ---
 
