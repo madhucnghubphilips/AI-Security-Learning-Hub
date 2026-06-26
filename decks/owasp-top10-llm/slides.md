@@ -245,6 +245,7 @@ AI       Large-scale matrix math over massive data
 
 ![bg contain](../../Resources/GPUvsCPU_001.png)
 
+
 ---
 
 <!-- _class: image -->
@@ -259,6 +260,13 @@ AI       Large-scale matrix math over massive data
 ![bg contain](../../Resources/Why-GPU-is-most-important-for-AI%282%29.png)
 
 ---
+
+<!-- _class: image -->
+
+![bg contain](../../Resources/CPU_GPU_TPU_NPU.png)
+
+---
+
 
 ## Jailbreak Attacks
 
