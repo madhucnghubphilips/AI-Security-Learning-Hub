@@ -196,12 +196,7 @@ The key difference from traditional software:
 
 ---
 
-<!-- _class: image -->
 
-
-![bg contain](../../Resources/deterministic-probabilistic%282%29.png)
-
----
 
 ## Machine Learning
 
