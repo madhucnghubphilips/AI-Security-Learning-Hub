@@ -410,7 +410,7 @@ It provides a common interface for tool and data access.
 <!-- _class: image -->
 
 
-![bg contain](../../Resources/MCP.png)
+![bg contain](../../Resources/MCP1.png)
 
 ---
 
