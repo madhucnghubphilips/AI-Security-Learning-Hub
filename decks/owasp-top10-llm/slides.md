@@ -125,6 +125,12 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 
 ---
 
+<!-- _class: image -->
+
+![bg contain](../../Resources/1Welcome.png)
+
+---
+
 <!--
 
 1.	**🤖 What is AI?**							            Traditional Programming vs AI
