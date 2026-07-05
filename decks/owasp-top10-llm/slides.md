@@ -503,7 +503,7 @@ Core workshop takeaway:
 <!-- _class: image -->
 
 
-![bg contain](../../Resources/Responsible-ai.png)
+![bg contain](../../Resources/AI_Principles.png)
 
 ---
 
