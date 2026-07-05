@@ -243,7 +243,6 @@ AI       Large-scale matrix math over massive data
 
 ---
 
-
 <!-- _class: image -->
 
 ![bg contain](../../Resources/Why-GPU-is-most-important-for-AI%282%29.png)
