@@ -127,7 +127,7 @@ From AI fundamentals to LLM risks, RAG, MCP, and responsible AI.
 
 <!-- _class: image -->
 
-![bg contain](../../Resources/1Welcome.png)
+![bg contain](../../Resources/Welcome1.png)
 
 ---
 
