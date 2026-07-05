@@ -518,3 +518,13 @@ Core workshop takeaway:
 # Thank You
 
 Questions and discussion
+
+---
+
+---
+
+<!-- _class: image -->
+
+![bg contain](../../Resources/Disclaimer.png)
+
+---
