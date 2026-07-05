@@ -435,6 +435,12 @@ These risks grow in agentic AI, model chaining, multimodal orchestration, and dy
 
 ---
 
+<!-- _class: image -->
+
+![bg contain](../../Resources/AI_System_Human_Anology.png)
+
+---
+
 ## How LLMs Work
 
 LLMs process and generate text through a sequence:
