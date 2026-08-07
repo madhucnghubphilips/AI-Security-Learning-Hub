@@ -530,6 +530,24 @@ Core workshop takeaway:
 
 ![bg contain](../../Resources/AI-PRINCIPLES-NEW.png)
 
+
+
+---
+
+<!-- _class: image -->
+
+
+![bg contain](../../Resources/What's-New-in-the-2026-Top10.png)
+
+
+
+---
+
+<!-- _class: image -->
+
+
+![bg contain](../../Resources/Key-Changes.png)
+
 ---
 
 <!-- _class: lead -->
