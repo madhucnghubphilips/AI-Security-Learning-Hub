@@ -257,10 +257,25 @@ AI       Large-scale matrix math over massive data
 
 <!-- _class: image -->
 
-![bg contain](../../Resources/CPU_GPU_TPU_NPU.png)
+![bg contain](../../Resources/AI_SLOP.png)
 
 ---
 
+---
+
+<!-- _class: image -->
+
+![bg contain](../../Resources/Model_Temperature_3.png)
+
+---
+
+---
+
+<!-- _class: image -->
+
+![bg contain](../../Resources/SIGNAL_TO_NOICE_RATIO_1.png)
+
+---
 
 ## Jailbreak Attacks
 
