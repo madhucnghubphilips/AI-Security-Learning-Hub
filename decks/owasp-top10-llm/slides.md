@@ -259,7 +259,6 @@ AI       Large-scale matrix math over massive data
 
 ![bg contain](../../Resources/AI_SLOP.png)
 
----
 
 ---
 
@@ -267,7 +266,6 @@ AI       Large-scale matrix math over massive data
 
 ![bg contain](../../Resources/Model_Temperature_3.png)
 
----
 
 ---
 
