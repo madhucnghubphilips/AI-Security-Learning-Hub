@@ -522,7 +522,7 @@ Core workshop takeaway:
 <!-- _class: image -->
 
 
-![bg contain](../../Resources/AI_Principles.png)
+![bg contain](../../Resources/AI-PRINCIPLES-NEW.png)
 
 ---
 
