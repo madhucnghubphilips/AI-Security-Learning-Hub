@@ -285,14 +285,14 @@ AI       Large-scale matrix math over massive data
 
 <!-- _class: image -->
 
-![bg contain](../../Resources/Model_Temperature_3.png)
-
+![bg contain](../../Resources/SNR_NEW.png)
 
 ---
 
 <!-- _class: image -->
 
-![bg contain](../../Resources/SIGNAL_TO_NOICE_RATIO_1.png)
+![bg contain](../../Resources/Model_Temperature_New.png)
+
 
 ---
 
